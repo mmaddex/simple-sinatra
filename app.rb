@@ -7,4 +7,5 @@ get '/' do
 end
 
 get '/health' do
+  'so much health'
 end
