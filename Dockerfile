@@ -4,13 +4,9 @@ FROM ruby:2.7.2
 RUN ls
 RUN pwd
 
-WORKDIR /sinat
+COPY ./* .
 RUN ls
 RUN pwd
-COPY sinat ./src
-RUN ls
-RUN pwd
-COPY run.sh .
 
 RUN bundle install
 
