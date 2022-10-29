@@ -1,5 +1,6 @@
 services:
   - type: web
+    autoDeploy: false
     name: simple-sinatra-blueprint
     env: ruby
     healthCheckPath: /health
