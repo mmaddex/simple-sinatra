@@ -4,7 +4,6 @@ FROM ruby:2.7.2
 RUN ls
 RUN pwd
 
-RUN ls /home/render
 RUN ls /opt/render/project
 
 RUN bundle install
