@@ -1,6 +1,6 @@
 FROM ruby:2.7.2
 
-RUN git clone https://github.com/mmaddex/simple-sinatra.git
+# RUN git clone https://github.com/mmaddex/simple-sinatra.git
 
 RUN bundle install
 
