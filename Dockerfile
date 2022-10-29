@@ -4,11 +4,16 @@ FROM ruby:2.7.2
 RUN ls
 RUN pwd
 
-RUN ls /opt/render/project
+WORKDIR /sinat
+RUN ls
+RUN pwd
+COPY sinat ./src
+RUN ls
+RUN pwd
+COPY run.sh .
 
 RUN bundle install
 
-COPY run.sh ./
 # RUN chmod +x /run.sh
 
 EXPOSE 4000
