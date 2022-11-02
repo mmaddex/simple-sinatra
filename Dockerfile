@@ -10,7 +10,7 @@ COPY ./* ./src
 RUN ls
 RUN pwd
 
-WORKDIR /src
+WORKDIR src
 
 RUN pwd
 
