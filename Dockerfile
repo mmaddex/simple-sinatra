@@ -4,7 +4,7 @@ ARG SECRET_SECRET
 ARG DASHBOARD_DEFINED
 RUN echo $DASHBOARD_DEFINED
 
-ADD ./config.ru /etc/sin/
+ADD config.ru /etc/sin/
 RUN cat /etc/sin/config.ru
 COPY ./* .
 RUN chmod +x /loads_secrets.sh
@@ -23,5 +23,4 @@ RUN chmod +x /run.sh
 
 EXPOSE 4000
 
-#ENTRYPOINT [ "/run.sh" ]
-CMD [ "./bin/bash bundle exec puma" ]
+ENTRYPOINT [ "/run.sh" ]
