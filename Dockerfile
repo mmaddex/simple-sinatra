@@ -1,6 +1,8 @@
 FROM ruby:3.1.2
 
 ARG SECRET_SECRET
+ARG DASHBOARD_DEFINED
+RUN echo $DASHBOARD_DEFINED
 
 COPY ./* .
 RUN chmod +x /loads_secrets.sh
