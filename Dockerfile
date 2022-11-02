@@ -6,13 +6,11 @@ RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.file . /etc/secre
 RUN ls
 RUN pwd
 
-COPY ./* ./src
+COPY ./* ./app
 RUN ls
+RUN cd app
 RUN pwd
-
-WORKDIR ./src
-
-RUN pwd
+RUN ls
 
 RUN bundle install
 
