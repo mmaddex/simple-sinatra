@@ -1,12 +1,17 @@
 FROM ruby:3.1.2
 
 RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.file . /etc/secrets/secret.file
+RUN cat /etc/secrets/secret.file
 
 RUN ls
 RUN pwd
 
-COPY ./* .
+COPY ./* ./src
 RUN ls
+RUN pwd
+
+WORKDIR /src
+
 RUN pwd
 
 RUN bundle install
