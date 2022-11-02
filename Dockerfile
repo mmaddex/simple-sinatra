@@ -4,7 +4,8 @@ ARG SECRET_SECRET
 ARG DASHBOARD_DEFINED
 RUN echo $DASHBOARD_DEFINED
 
-COPY ./* .
+ADD ./* .
+RUN cat /config.ru
 RUN chmod +x /loads_secrets.sh
 
 RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.file cat /etc/secrets/secret.file
