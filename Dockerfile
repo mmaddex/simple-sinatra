@@ -11,7 +11,7 @@ RUN pwd
 
 RUN bundle install
 
-#RUN chmod +x /run.sh
+RUN chmod +x /run.sh
 
 EXPOSE 4000
 
