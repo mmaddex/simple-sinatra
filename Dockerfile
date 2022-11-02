@@ -1,6 +1,7 @@
 FROM ruby:3.1.2
 
-# RUN git clone https://github.com/mmaddex/simple-sinatra.git
+RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.file . /etc/secrets/secret.file
+
 RUN ls
 RUN pwd
 
@@ -10,9 +11,8 @@ RUN pwd
 
 RUN bundle install
 
-RUN chmod +x /run.sh
+#RUN chmod +x /run.sh
 
 EXPOSE 4000
-EXPOSE 5000
 
 ENTRYPOINT [ "/run.sh" ]
