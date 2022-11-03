@@ -1,6 +1,6 @@
 require 'sinatra'
 
-set :bind, '0.0.0.0'
+set :bind, '127.0.0.1'
 
 get '/' do
   "How you doing?"
