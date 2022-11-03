@@ -7,5 +7,5 @@ get '/' do
 end
 
 get '/api/utility/health' do
-  "thanks fer #{token}"
+  "thanks fer #{params['token']}"
 end
