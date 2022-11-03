@@ -6,6 +6,6 @@ get '/' do
   "How you doing?"
 end
 
-get '/health' do
-  'so much health'
+get '/api/utility/health' do
+  "thanks fer #{token}"
 end
