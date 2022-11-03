@@ -7,5 +7,6 @@ get '/' do
 end
 
 get '/api/utility/health' do
+  status 304
   "thanks fer #{params['token']}"
 end
