@@ -3,8 +3,6 @@ require 'sinatra'
 set :bind, '127.0.0.1'
 
 get '/' do
-  file = File.read('/etc/secrets/secret.json')
-  data_hash = JSON.parse(file)
   "How you doing?"
 end
 
