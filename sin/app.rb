@@ -16,6 +16,10 @@ get '/secretfile' do
   data_hash.to_s
 end
 
+get '/writefile' do
+  File.write('/opt/render/project/test.it', 'Some glorious content', mode: 'a')
+end
+
 get '/api/utility/health' do
   status 304
   "thanks fer #{params['token']}"
