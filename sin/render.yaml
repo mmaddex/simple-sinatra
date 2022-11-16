@@ -4,6 +4,7 @@ services:
     name: simple-sinatra-blueprint
     env: ruby
     healthCheckPath: /health
+    previewsEnabled: true
     envVars:
     - key: test_env
       sync: false
