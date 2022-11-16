@@ -3,7 +3,7 @@ require 'sinatra'
 set :bind, '127.0.0.1'
 
 get '/' do
-  "How you doing??"
+  "How you doing???"
 end
 
 get '/env' do
