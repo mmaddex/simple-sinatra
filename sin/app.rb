@@ -18,6 +18,7 @@ end
 
 get '/writefile' do
   File.write('/opt/render/project/test.it', 'Some glorious content', mode: 'a')
+  status 200
 end
 
 get '/api/utility/health' do
