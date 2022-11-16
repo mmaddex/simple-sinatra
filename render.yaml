@@ -1,4 +1,4 @@
-previewsEnabled: false
+previewsEnabled: true
 services:
   - type: web
     autoDeploy: false
