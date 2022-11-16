@@ -4,9 +4,11 @@ services:
     autoDeploy: false
     name: simple-sinatra-blueprint
     env: ruby
-    healthCheckPath: /health
+    healthCheckPath: /api/utility/health
     rootDir: sin
     envVars:
+    - key: PORT
+      value: 9292
     - key: test_env
       sync: false
     scaling:
