@@ -18,8 +18,9 @@ end
 
 get '/writefile' do
   File.write('/opt/render/project/test.it', 'Some glorious content', mode: 'a+')
-  File.read('/opt/render/project/test.it')
-  status 200
+  readit = File.read('/opt/render/project/test.it')
+  puts readit
+  readit
 end
 
 get '/api/utility/health' do
