@@ -4,6 +4,9 @@ ARG SECRET_SECRET
 ARG DASHBOARD_DEFINED
 RUN echo $DASHBOARD_DEFINED
 
+ARG GROUP_ENV_PLAIN
+RUN echo $GROUP_ENV_PLAIN
+
 ADD config.ru /etc/sin/
 RUN cat /etc/sin/config.ru
 COPY ./* .
