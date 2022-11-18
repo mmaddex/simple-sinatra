@@ -7,6 +7,9 @@ RUN echo $DASHBOARD_DEFINED
 ARG GROUP_ENV_PLAIN
 RUN echo $GROUP_ENV_PLAIN
 
+ARG RAILS_ENV
+RUN echo $RAILS_ENV
+
 ADD config.ru /etc/sin/
 RUN cat /etc/sin/config.ru
 COPY ./* .
