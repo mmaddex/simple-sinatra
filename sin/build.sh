@@ -8,6 +8,9 @@ pwd
 ls
 echo "bash the env"
 bash ./casperjs_env.sh
+echo "from build.sh"
+echo $OPENSSL_CONF
+echo $PATH
 casperjs --version
 phantomjs --version
 
