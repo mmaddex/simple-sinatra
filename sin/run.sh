@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./casperjs_env.sh
+bash ./casperjs_env.sh
 
 echo "starting on all the ports"
 echo $SSH_VAR
