@@ -10,3 +10,5 @@ export PATH="$PATH:/opt/render/project/src/sin/node_modules/casperjs/bin/"
 echo "from casperjs_env.sh"
 echo $OPENSSL_CONF
 echo $PATH
+casperjs --version
+phantomjs --version
