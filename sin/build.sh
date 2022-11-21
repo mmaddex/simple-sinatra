@@ -4,6 +4,8 @@
 # https://www.npmjs.com/package/casperjs
 npm install phantomjs-prebuilt casperjs
 
-./casperjs_env.sh
+bash ./casperjs_env.sh
+casperjs --version
+phantomjs --version
 
 bundle install
