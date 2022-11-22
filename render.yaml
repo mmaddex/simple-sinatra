@@ -1,7 +1,7 @@
 previewsEnabled: true
 services:
   - type: web
-    plan: Custom 6 CPU / 6 GB RAM
+    plan: Custom 8 CPU / 16 GB RAM
     autoDeploy: false
     name: simple-sinatra-blueprint
     env: ruby
