@@ -2,10 +2,11 @@ previewsEnabled: true
 services:
   - type: web
     autoDeploy: false
-    name: simple-sinatra-blueprint
+    name: custombuild
     env: ruby
     healthCheckPath: /api/utility/health
     rootDir: sin
+    branch: mmaddex-custombuild
     envVars:
     - key: PORT
       value: 9292
@@ -16,5 +17,5 @@ services:
       maxInstances: 3
       targetMemoryPercent: 60 # optional if targetCPUPercent is set
       targetCPUPercent: 60 # optional if targetMemory is set
-    buildCommand: bundle install
-    startCommand: bundle exec puma
+    buildCommand: ./build.sh
+    startCommand: ./run.sh
