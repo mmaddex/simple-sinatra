@@ -1,5 +1,6 @@
 services:
   - type: web
+    plan: starter plus
     autoDeploy: true
     name: custombuild
     env: ruby
