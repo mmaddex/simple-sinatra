@@ -1,6 +1,6 @@
 services:
   - type: web
-    plan: Custom 2 CPU / 16 GB RAM
+    plan: starter
     autoDeploy: true
     name: custombuild
     env: ruby
