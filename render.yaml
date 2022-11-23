@@ -1,7 +1,6 @@
 previewsEnabled: true
 services:
 - type: web
-  autoDeploy: true
   plan: free
   name: simple-sinatra-blueprint
   env: ruby
