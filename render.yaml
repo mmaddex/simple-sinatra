@@ -15,6 +15,5 @@ services:
     sync: false
   buildCommand: bundle install
   startCommand: bundle exec puma
-databases:
-- name: matdb
-  plan: free
+#databases:
+#- name: matdb
