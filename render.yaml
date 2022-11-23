@@ -1,26 +1,26 @@
 previewsEnabled: true
 services:
 - type: web
-    plan: free
-    previewPlan: free
-    autoDeploy: false
-    name: simple-sinatra-blueprint
-    env: ruby
-    healthCheckPath: /api/utility/health
-    rootDir: sin
-    envVars:
-    - key: PORT
-      value: 9292
-    - key: test_env
-      sync: false
-    scaling:
-      minInstances: 1
-      maxInstances: 3
-      targetMemoryPercent: 60 # optional if targetCPUPercent is set
-      targetCPUPercent: 60 # optional if targetMemory is set
-    buildCommand: bundle install
-    startCommand: bundle exec puma
+  plan: free
+  previewPlan: free
+  autoDeploy: false
+  name: simple-sinatra-blueprint
+  env: ruby
+  healthCheckPath: /api/utility/health
+  rootDir: sin
+  envVars:
+  - key: PORT
+    value: 9292
+  - key: test_env
+    sync: false
+  scaling:
+    minInstances: 1
+    maxInstances: 3
+    targetMemoryPercent: 60 # optional if targetCPUPercent is set
+    targetCPUPercent: 60 # optional if targetMemory is set
+  buildCommand: bundle install
+  startCommand: bundle exec puma
 databases:
-  - name: matdb
-    plan: free
-    previewPlan: free
+- name: matdb
+  plan: free
+  previewPlan: free
