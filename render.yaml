@@ -1,8 +1,8 @@
 previewsEnabled: true
 services:
 - type: web
-  plan: free
-  previewPlan: free
+  plan: standard
+  previewPlan: standard
   autoDeploy: false
   name: simple-sinatra-blueprint
   env: ruby
@@ -22,5 +22,5 @@ services:
   startCommand: bundle exec puma
 databases:
 - name: matdb
-  plan: free
-  previewPlan: free
+  plan: standard
+  previewPlan: standard
