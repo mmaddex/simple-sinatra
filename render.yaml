@@ -1,7 +1,8 @@
 previewsEnabled: true
 services:
   - type: web
-    plan: Custom 8 CPU / 16 GB RAM
+    plan: free
+    previewPlan: free
     autoDeploy: false
     name: simple-sinatra-blueprint
     env: ruby
@@ -19,3 +20,7 @@ services:
       targetCPUPercent: 60 # optional if targetMemory is set
     buildCommand: bundle install
     startCommand: bundle exec puma
+  databases:
+  - name: matdb
+    plan: free
+    previewPlan: free
