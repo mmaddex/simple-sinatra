@@ -2,7 +2,7 @@ previewsEnabled: true
 services:
 - type: web
   plan: standard
-  previewPlan: standard
+  previewPlan: free
   autoDeploy: false
   name: simple-sinatra-blueprint
   env: ruby
@@ -23,4 +23,4 @@ services:
 databases:
 - name: matdb
   plan: standard
-  previewPlan: standard
+  previewPlan: free
