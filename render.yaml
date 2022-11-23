@@ -2,7 +2,8 @@ previewsEnabled: true
 services:
 - type: web
   autoDeploy: true
-  plan: free
+  plan: starter
+  previewPlan: free
   name: simple-sinatra-blueprint
   env: ruby
   healthCheckPath: /api/utility/health
