@@ -1,6 +1,6 @@
 previewsEnabled: true
 services:
-  - type: web
+- type: web
     plan: free
     previewPlan: free
     autoDeploy: false
@@ -20,7 +20,7 @@ services:
       targetCPUPercent: 60 # optional if targetMemory is set
     buildCommand: bundle install
     startCommand: bundle exec puma
-  databases:
+databases:
   - name: matdb
     plan: free
     previewPlan: free
