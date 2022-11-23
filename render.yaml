@@ -2,7 +2,6 @@ previewsEnabled: true
 services:
 - type: web
   plan: free
-  #autoDeploy: true
   name: simple-sinatra-blueprint
   env: ruby
   healthCheckPath: /api/utility/health
@@ -12,11 +11,6 @@ services:
     value: 9292
   - key: test_env
     sync: false
-  #scaling:
-  #  minInstances: 1
-  #  maxInstances: 3
-  #  targetMemoryPercent: 60 # optional if targetCPUPercent is set
-  #  targetCPUPercent: 60 # optional if targetMemory is set
   buildCommand: bundle install
   startCommand: bundle exec puma
 databases:
