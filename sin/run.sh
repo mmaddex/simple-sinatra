@@ -13,5 +13,5 @@ phantomjs --version
 echo "checking casperjs"
 casperjs --version
 
-bundle exec puma -p 9292 & bundle exec puma -p 92
+bundle exec puma -p 80 #& bundle exec puma -p 92
 echo "done started"
