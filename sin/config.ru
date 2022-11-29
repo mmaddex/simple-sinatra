@@ -1,2 +1,8 @@
 require './app'
-run Sinatra::Application
+
+begin
+  run Sinatra::Application
+rescue SignalException => e
+  puts "Received Signal #{e}"
+  puts 'shutting down'
+end
