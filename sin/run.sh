@@ -7,6 +7,9 @@ echo "starting on all the ports"
 echo $SSH_VAR
 echo $RAILS_ENV
 
+echo "setting locales"
+dpkg-reconfigure locales
+
 echo "checking phantomjs"
 phantomjs --version
 
