@@ -1,6 +1,6 @@
 require 'sinatra'
 
-set :bind, '127.0.0.1'
+#set :bind, '127.0.0.1'
 
 get '/' do
   "How are you doing?"
@@ -21,6 +21,11 @@ get '/writefile' do
   readit = File.read('/opt/render/project/test.it')
   puts readit
   readit
+end
+
+get '/health' do
+  puts ENV['RENDER_INSTANCE_ID']
+  status 200
 end
 
 get '/api/utility/health' do
