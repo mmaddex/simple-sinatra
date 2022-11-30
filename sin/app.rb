@@ -3,6 +3,7 @@ require 'sinatra'
 #set :bind, '127.0.0.1'
 
 get '/' do
+  puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
   "Tudo bem?"
 end
 
@@ -24,7 +25,7 @@ get '/writefile' do
 end
 
 get '/health' do
-  puts ENV['RENDER_INSTANCE_ID']
+  puts "from /health - #{ENV['RENDER_INSTANCE_ID']}"
   status 200
 end
 
