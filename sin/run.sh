@@ -14,4 +14,5 @@ echo $RAILS_ENV
 #casperjs --version
 
 bundle exec puma #& bundle exec puma -p 92
+cat file.txt
 echo "done started"
