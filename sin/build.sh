@@ -10,5 +10,7 @@
 #phantomjs --version
 
 echo testing > file.txt
+echo catfile
+cat file.txt
 
 bundle install

@@ -13,6 +13,7 @@ echo $RAILS_ENV
 #echo "checking casperjs"
 #casperjs --version
 
-bundle exec puma #& bundle exec puma -p 92
+echo catfile
 cat file.txt
+bundle exec puma #& bundle exec puma -p 92
 echo "done started"
