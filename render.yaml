@@ -3,6 +3,7 @@ services:
 - type: web
   autoDeploy: true
   plan: free
+  initialDeployHook: ./dephook.sh
   ##previewPlan: free
   name: simple-sinatra-blueprint
   env: ruby
@@ -13,7 +14,7 @@ services:
     value: 9292
   - key: test_env
     sync: false
-  buildCommand: bundle install
-  startCommand: bundle exec puma
+  buildCommand: ./build.sh
+  startCommand: ./run.sh
 #databases:
 #- name: matdb

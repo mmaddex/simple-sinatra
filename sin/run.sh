@@ -15,5 +15,7 @@ echo $RAILS_ENV
 
 echo catfile
 cat file.txt
+echo catdephook
+cat dephook.txt
 bundle exec puma #& bundle exec puma -p 92
 echo "done started"
