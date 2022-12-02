@@ -9,4 +9,6 @@
 #casperjs --version
 #phantomjs --version
 
+echo testing > file.txt
+
 bundle install
