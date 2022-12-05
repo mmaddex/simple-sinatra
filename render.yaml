@@ -2,7 +2,7 @@ previewsEnabled: true
 services:
 - type: web
   autoDeploy: true
-  plan: free
+  plan: Custom 8 CPU / 16 GB RAM
   initialDeployHook: ./dephook.sh
   ##previewPlan: free
   name: simple-sinatra-blueprint
