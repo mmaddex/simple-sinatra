@@ -13,4 +13,8 @@ echo testing > file.txt
 echo catfile
 cat file.txt
 
+echo testingopenssl
+echo '#testing' >> /usr/lib/ssl/openssl.cnf
+echo '#testing' >> /etc/ssl/openssl.cnf
+
 bundle install
