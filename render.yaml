@@ -1,6 +1,7 @@
 previewsEnabled: true
 services:
 - type: web
+  branch: mmaddex-patch-1
   autoDeploy: true
   plan: starter
   initialDeployHook: ./dephook.sh
