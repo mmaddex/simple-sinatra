@@ -12,6 +12,8 @@ echo $RAILS_ENV
 
 #echo "checking casperjs"
 #casperjs --version
+cat /etc/secrets/secret.file
+cat .env
 
 echo catfile
 cat file.txt
