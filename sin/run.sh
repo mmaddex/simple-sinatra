@@ -6,19 +6,18 @@
 echo "starting on all the ports"
 echo $SSH_VAR
 echo $RAILS_ENV
+echo 'testmd'
+cat test.md
 
 #echo "checking phantomjs"
 #phantomjs --version
 
 #echo "checking casperjs"
 #casperjs --version
-cat /etc/secrets/secret.file
+echo 'secrets.json'
+cat /etc/secrets/secret.json
+echo '.env'
 cat .env
 
-echo catfile
-cat file.txt
-echo catdephook
-cat dephook.txt
 bundle exec puma #& bundle exec puma -p 92
 echo "done started"
-cat test.md
