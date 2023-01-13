@@ -28,6 +28,7 @@ end
 get '/health' do
   puts "from /health - #{ENV['RENDER_INSTANCE_ID']}"
   status 200
+  OK
 end
 
 get '/api/utility/health' do
