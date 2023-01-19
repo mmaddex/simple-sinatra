@@ -6,7 +6,7 @@ services:
   plan: starter
   ##initialDeployHook: ./dephook.sh
   ##previewPlan: free
-  name: simple-sinatra-blueprint
+  name: simple-sinatra-blueprint-embed
   env: ruby
   healthCheckPath: /api/utility/health
   buildCommand: ./build.sh
