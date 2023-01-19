@@ -1,19 +1,14 @@
+previewsEnabled: true
+previewsExpireAfterDays: 2
 services:
 - type: web
   autoDeploy: true
   plan: starter
-  initialDeployHook: ./dephook.sh
+  ##initialDeployHook: ./dephook.sh
   ##previewPlan: free
   name: simple-sinatra-blueprint
   env: ruby
   healthCheckPath: /api/utility/health
   rootDir: sin
-  envVars:
-  - key: PORT
-    value: 9292
-  - key: test_env
-    sync: false
   buildCommand: ./build.sh
   startCommand: ./run.sh
-#databases:
-#- name: matdb
