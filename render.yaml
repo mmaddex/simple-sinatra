@@ -9,6 +9,5 @@ services:
   name: simple-sinatra-blueprint
   env: ruby
   healthCheckPath: /api/utility/health
-  rootDir: sin
   buildCommand: ./build.sh
   startCommand: ./run.sh
