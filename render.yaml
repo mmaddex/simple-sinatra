@@ -1,12 +1,14 @@
 previewsEnabled: true
-previewsExpireAfterDays: 2
+previewsExpireAfterDays: 1
 services:
 - type: web
+  repo: https://github.com/mmaddex/simple-sinatra.git
+  branch: main
   autoDeploy: true
   plan: starter
   ##initialDeployHook: ./dephook.sh
   ##previewPlan: free
-  name: simple-sinatra-blueprint-embed
+  name: simple-sinatra-blueprint-separatae
   env: ruby
   healthCheckPath: /api/utility/health
   buildCommand: ./build.sh
