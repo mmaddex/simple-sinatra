@@ -7,7 +7,7 @@
 echo "does it PIP?"
 pip --version
 python3-pip --version
-pip3 install requirements.txt
+pip3 install
 echo "did it pip?"
 
 #./casperjs_env.sh
