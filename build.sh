@@ -4,17 +4,22 @@
 # https://www.npmjs.com/package/casperjs
 #npm install phantomjs-prebuilt casperjs
 
+echo "does it PIP?"
+pip --version
+python3-pip --version
+echo "did it pip?"
+
 #./casperjs_env.sh
 #source ~/.bashrc
 #casperjs --version
 #phantomjs --version
 
-echo testing > file.txt
-echo catfile
-cat file.txt
+#echo testing > file.txt
+#echo catfile
+#cat file.txt
 
-echo testingopenssl
-echo '#testing' >> /usr/lib/ssl/openssl.cnf
-echo '#testing' >> /etc/ssl/openssl.cnf
+#echo testingopenssl
+#echo '#testing' >> /usr/lib/ssl/openssl.cnf
+#echo '#testing' >> /etc/ssl/openssl.cnf
 
 bundle install
