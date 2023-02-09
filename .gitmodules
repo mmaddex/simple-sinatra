@@ -1,0 +1,3 @@
+[submodule "croner"]
+	path = include/croner
+	url = git@github.com:mmaddex/cron.git
