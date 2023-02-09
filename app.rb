@@ -19,7 +19,7 @@ get '/secretfile' do
 end
 
 get '/writefile' do
-  File.write('/opt/render/project/test.it', 'Some glorious content', mode: 'a+')
+  File.write('/opt/render/project/test.it', 'Some gloreious content', mode: 'a+')
   readit = File.read('/opt/render/project/test.it')
   puts readit
   readit
