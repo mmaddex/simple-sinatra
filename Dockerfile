@@ -30,4 +30,4 @@ RUN chmod +x /run.sh
 EXPOSE 4000
 
 #ENTRYPOINT [ "/run.sh" ]
-CMD [bundle exec puma -p 92]
+CMD [bundle, exec, puma -p 92]
