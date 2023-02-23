@@ -10,8 +10,8 @@ RUN echo $GROUP_ENV_PLAIN
 ARG RAILS_ENV
 RUN echo $RAILS_ENV
 
-ADD config.ru /etc/sin/
-RUN cat /etc/sin/config.ru
+ADD config.ru /etc/
+RUN cat /etc/config.ru
 COPY ./* .
 RUN chmod +x /loads_secrets.sh
 
