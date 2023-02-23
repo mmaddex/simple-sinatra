@@ -27,7 +27,7 @@ RUN bundle install
 
 RUN chmod +x /run.sh
 
-EXPOSE 4000
+EXPOSE 4444
 
 #ENTRYPOINT [ "/run.sh" ]
-CMD [bundle, exec, puma -p 92]
+CMD [ "/run.sh" ]
