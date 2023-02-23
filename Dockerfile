@@ -27,6 +27,8 @@ RUN bundle install
 
 RUN chmod +x /run.sh
 
+ENV PORT=4444
+
 EXPOSE 4444
 
 #ENTRYPOINT [ "/run.sh" ]
