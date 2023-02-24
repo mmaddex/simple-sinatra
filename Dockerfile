@@ -32,4 +32,5 @@ ENV PORT=5555
 EXPOSE 5555
 
 #ENTRYPOINT [ "/run.sh" ]
-CMD [ "/run.sh" ]
+#CMD [ "/run.sh" ]
+CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
