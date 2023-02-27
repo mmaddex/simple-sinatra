@@ -31,6 +31,12 @@ get '/health' do
   "orl korrect"
 end
 
+get '/healthfail' do
+  puts "from /health - #{ENV['RENDER_INSTANCE_ID']}"
+  status 500
+  "none korrect"
+end
+
 get '/api/utility/health' do
   status 304
   "thanks fer #{params['token']}"
