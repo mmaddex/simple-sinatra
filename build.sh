@@ -17,6 +17,4 @@
 #echo '#testing' >> /usr/lib/ssl/openssl.cnf
 #echo '#testing' >> /etc/ssl/openssl.cnf
 
-pip3 install replicate
-
 bundle install
