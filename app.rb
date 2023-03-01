@@ -27,6 +27,7 @@ end
 
 get '/health' do
   puts "from /health - #{ENV['RENDER_INSTANCE_ID']}"
+  puts request
   status 200
   "orl korrect"
 end
