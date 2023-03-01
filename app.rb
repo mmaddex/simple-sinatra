@@ -27,7 +27,7 @@ end
 
 get '/health' do
   puts "from /health - #{ENV['RENDER_INSTANCE_ID']}"
-  puts request
+  puts request.to_json
   status 200
   "orl korrect"
 end
