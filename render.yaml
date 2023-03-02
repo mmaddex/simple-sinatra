@@ -7,7 +7,7 @@ services:
   autoDeploy: true
   plan: starter
   ##initialDeployHook: ./dephook.sh
-  ##previewPlan: free
+  previewPlan: Starter Plus
   name: simple-sinatra-blueprint-separatae
   env: ruby
   healthCheckPath: /api/utility/health
