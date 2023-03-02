@@ -2,8 +2,6 @@ previewsEnabled: true
 previewsExpireAfterDays: 1
 services:
 - type: web
-  repo: https://github.com/mmaddex/simple-sinatra.git
-  branch: test-branch
   autoDeploy: true
   plan: starter
   ##initialDeployHook: ./dephook.sh
