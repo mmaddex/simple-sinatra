@@ -26,7 +26,7 @@ get '/writefile' do
 end
 
 get '/health' do
-  puts "Health check reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - #{request.ip}"
+  puts "Health check reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - #{request.url}"
   status 200
   "orl korrect"
 end
