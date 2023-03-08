@@ -19,6 +19,7 @@ cat /etc/secrets/secret.json
 echo '.env'
 cat .env
 
-set -x
-bundle exec puma -p 5555 & bundle exec puma -p 5557
+# set -x
+# bundle exec puma -p 5555 & bundle exec puma -p 5557
+bundle exec puma
 echo "done started"
