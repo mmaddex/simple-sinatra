@@ -1,4 +1,4 @@
-echo modified dephook
+echo original dephook
 echo testing > dephook.txt
 echo catdephook
 cat dephook.txt
