@@ -4,7 +4,7 @@ require 'sinatra'
 
 get '/' do
   puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
-  "Tudo bem? fail?"
+  "Tudo bem? fail??"
 end
 
 get '/env' do
