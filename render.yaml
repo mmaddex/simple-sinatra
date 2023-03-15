@@ -1,10 +1,10 @@
-##previewsEnabled: true
-##previewsExpireAfterDays: 1
+previewsEnabled: true
+previewsExpireAfterDays: 1
 services:
 - type: web
   autoDeploy: true
   ##plan: starter plus
-  ##initialDeployHook: ./dephook.sh
+  initialDeployHook: ./dephook.sh
   name: simple-sinatra
   env: ruby
   healthCheckPath: /health
