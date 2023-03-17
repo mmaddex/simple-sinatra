@@ -24,3 +24,5 @@ cat .env
 bundle exec puma
 echo "done started"
 ps -ef | grep puma
+
+touch ~/.irbrc_run && echo "IRB.conf[:USE_AUTOCOMPLETE] = false" >> ~/.irbrc_run
