@@ -1,5 +1,7 @@
 #!/bin/bash
 
+touch ~/.irbrc_run && echo "IRB.conf[:USE_AUTOCOMPLETE] = false" >> ~/.irbrc_run
+cat ~/.irbrc_run
 #./casperjs_env.sh
 #source ~/.bashrc
 
