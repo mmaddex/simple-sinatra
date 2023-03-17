@@ -1,5 +1,5 @@
 #!/bin/bash
-
+exit 666
 # https://www.npmjs.com/package/phantomjs-prebuilt
 # https://www.npmjs.com/package/casperjs
 #npm install phantomjs-prebuilt casperjs
