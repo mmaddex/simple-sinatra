@@ -18,3 +18,4 @@
 #echo '#testing' >> /etc/ssl/openssl.cnf
 
 bundle install
+touch ~/.irbrc_build && echo "IRB.conf[:USE_AUTOCOMPLETE] = false" >> ~/.irbrc_build
