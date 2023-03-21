@@ -3,9 +3,12 @@ require 'sinatra'
 #set :bind, '127.0.0.1'
 
 get '/' do
-  status 404
-  #puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
-  #"Tudo bem? fail"
+  puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
+  "Tudo bem? fail"
+end
+
+get '/itsa/:status_code' do
+  status params[:status_code].to_i
 end
 
 get '/env' do
