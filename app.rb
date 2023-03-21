@@ -4,6 +4,8 @@ require 'sinatra'
 
 get '/' do
   puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
+  
+  response.headers['Cache-Control'] = 'no-transform'
   response.headers['Content-Length'] = '666'
   "Tudo bem?"
 end
