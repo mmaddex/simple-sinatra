@@ -4,7 +4,8 @@ require 'sinatra'
 
 get '/' do
   puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
-  "Tudo bem? fail"
+  response.headers['Content-Length'] = '666'
+  "Tudo bem?"
 end
 
 get '/itsa/:status_code' do
