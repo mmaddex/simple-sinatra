@@ -7,7 +7,7 @@ get '/' do
   
   response.headers['Cache-Control'] = 'no-transform'
   response.headers['Content-Length'] = '6666'
-  "Tudo bem?"
+  "Tudo bem??"
 end
 
 get '/itsa/:status_code' do
