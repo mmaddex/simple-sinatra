@@ -16,5 +16,7 @@
 #echo '#testing' >> /usr/lib/ssl/openssl.cnf
 #echo '#testing' >> /etc/ssl/openssl.cnf
 
+echo $RENDER_PROJECT_CACHE_DIRS
+
 bundle install
 touch ~/.irbrc_build && echo "IRB.conf[:USE_AUTOCOMPLETE] = false" >> ~/.irbrc_build
