@@ -19,8 +19,9 @@ end
 get '/secretfile' do
   puts "secretfile"
   file = File.read('/etc/secrets/secret.json')
-  data_hash = JSON.parse(file)
-  data_hash.to_s
+  # data_hash = JSON.parse(file)
+  # data_hash.to_s
+  file.to_s
 end
 
 get '/rootsecretfile' do
