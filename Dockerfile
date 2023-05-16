@@ -15,7 +15,9 @@ RUN cat /etc/config.ru
 COPY ./* .
 RUN chmod +x /loads_secrets.sh
 
-RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.json cat /etc/secrets/secret.json
+#broken
+# RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.json cat /etc/secrets/secret.json
+RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.json cat secret.json
 # secrets are available in loads_secrets.sh
 RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.json ./loads_secrets.sh
 RUN echo "out the secrets loader"
