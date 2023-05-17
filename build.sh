@@ -18,5 +18,7 @@
 
 echo $RENDER_PROJECT_CACHE_DIRS
 
+ls
+
 bundle install
 touch ~/.irbrc_build && echo "IRB.conf[:USE_AUTOCOMPLETE] = false" >> ~/.irbrc_build
