@@ -20,6 +20,8 @@ echo $RENDER_PROJECT_CACHE_DIRS
 
 echo lsing
 ls
+echo cronning
+ls cron
 
 bundle install
 touch ~/.irbrc_build && echo "IRB.conf[:USE_AUTOCOMPLETE] = false" >> ~/.irbrc_build
