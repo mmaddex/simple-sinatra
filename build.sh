@@ -18,6 +18,7 @@
 
 echo $RENDER_PROJECT_CACHE_DIRS
 
+echo lsing
 ls
 
 bundle install
