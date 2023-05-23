@@ -10,3 +10,5 @@ services:
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: ./run.sh
+  envVars:
+    - fromGroup: auth
