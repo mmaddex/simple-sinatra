@@ -16,6 +16,12 @@ get '/env' do
   ENV.to_h.to_s
 end
 
+get '/appfile' do
+  puts "appfile"
+  file = File.read('/opt/render/project/src/run.sh')
+  file.to_s
+end
+
 get '/secretfile' do
   puts "secretfile"
   file = File.read('/etc/secrets/secret.json')
