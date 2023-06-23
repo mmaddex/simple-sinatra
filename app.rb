@@ -12,7 +12,6 @@ get '/itsa/:status_code' do
 end
 
 get '/env' do
-  response.headers['Transfer-Encoding'] = 'gzip'
   ENV.to_h.to_s
 end
 
