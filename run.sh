@@ -7,6 +7,8 @@
 #source ~/.bashrc
 
 echo "starting on all the ports"
+echo $RENDER_INSTANCE_ID
+echo $RENDER_SERVICE_ID
 echo $SSH_VAR
 echo $RAILS_ENV
 #echo 'testmd'
