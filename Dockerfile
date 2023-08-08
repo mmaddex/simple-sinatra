@@ -25,6 +25,7 @@ RUN chmod +x /loads_secrets.sh
 #RUN echo $SECOND_SECRET
 
 #RUN bundle install
+RUN gem update --system
 RUN chmod +x /build.sh
 RUN /build.sh
 
