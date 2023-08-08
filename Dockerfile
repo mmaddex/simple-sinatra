@@ -28,6 +28,7 @@ RUN chmod +x /loads_secrets.sh
 RUN gem update --system
 RUN chmod +x /build.sh
 RUN /build.sh
+COPY ./* .
 
 RUN chmod +x /run.sh
 
