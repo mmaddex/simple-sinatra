@@ -12,3 +12,5 @@ services:
   startCommand: ./run.sh
   envVars:
     - fromGroup: auth
+    envVars:
+    - fromGroup: previewEnv
