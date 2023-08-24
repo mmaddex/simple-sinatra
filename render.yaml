@@ -3,6 +3,7 @@ previewsEnabled: true
 services:
 - type: web
   autoDeploy: true
+  region: ohio
   ##plan: starter plus
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
