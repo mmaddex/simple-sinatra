@@ -16,7 +16,7 @@ end
 
 get '/json' do
   puts 'JSON'
-  puts ({test: 'error json', out: {with: [1,2]}}.to_json)
+  puts ({test: 'error json', level: 'info', out: {with: [1,2]}}.to_json)
   puts 'HASH'
   puts ({test: 'warning hash', level: 'info', out: {with: [1,2]}})
   puts 'pretty'
