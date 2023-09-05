@@ -14,7 +14,7 @@ get '/env' do
   ENV.to_h.to_s
 end
 
-get 'json' do
+get '/json' do
   puts 'JSON'
   puts ({test: 'json', out: {with: [1,2]}}.to_json)
   puts 'HASH'
