@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'json'
 
 get '/' do
   puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
@@ -11,6 +12,13 @@ end
 
 get '/env' do
   ENV.to_h.to_s
+end
+
+get 'json' do
+  puts 'JSON'
+  puts ({test: 'json', out: {with: [1,2]}}.to_json)
+  puts 'HASH'
+  puts ({test: 'hash', out: {with: [1,2]}})
 end
 
 get '/appfile' do
