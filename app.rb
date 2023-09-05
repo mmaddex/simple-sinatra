@@ -16,9 +16,9 @@ end
 
 get '/json' do
   puts 'JSON'
-  puts ({test: 'json', out: {with: [1,2]}}.to_json)
+  puts ({test: 'error json', out: {with: [1,2]}}.to_json)
   puts 'HASH'
-  puts ({test: 'hash', out: {with: [1,2]}})
+  puts ({test: 'warning hash', out: {with: [1,2]}})
 end
 
 get '/appfile' do
