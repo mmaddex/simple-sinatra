@@ -18,9 +18,9 @@ get '/json' do
   puts 'JSON'
   puts ({test: 'error json', out: {with: [1,2]}}.to_json)
   puts 'HASH'
-  puts ({test: 'warning hash', out: {with: [1,2]}})
+  puts ({test: 'warning hash', level: 'info', out: {with: [1,2]}})
   puts 'pretty'
-  puts JSON.pretty_generate({test: 'warning hash', out: {with: [1,2]}})
+  puts JSON.pretty_generate({test: 'info pretty', out: {with: [1,2]}})
 end
 
 get '/appfile' do
