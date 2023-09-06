@@ -2,7 +2,7 @@ previewsEnabled: true
 #previewsExpireAfterDays: 1
 services:
 - type: web
-  autoDeploy: true
+  autoDeploy: false
   ##plan: starter plus
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
