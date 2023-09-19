@@ -15,7 +15,8 @@
 #echo testingopenssl
 #echo '#testing' >> /usr/lib/ssl/openssl.cnf
 #echo '#testing' >> /etc/ssl/openssl.cnf
-touch /opt/render/project/test/file.txt
+touch /opt/render/project/testfil/file.txt
+touch /opt/render/project/src/insrc/file.txt
 
 echo $RENDER_PROJECT_CACHE_DIRS
 
