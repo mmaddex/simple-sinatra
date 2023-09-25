@@ -2,6 +2,8 @@ require 'sinatra'
 require 'json'
 
 get '/' do
+  STDERR.puts "errrrrr"
+  STDOUT.puts "ooooot"
   puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
   "Tudo bem?!??!!"
 end
