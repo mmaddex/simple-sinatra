@@ -22,7 +22,7 @@ RUN chmod +x /loads_secrets.sh
 #RUN echo "out the secrets loader"
 # note that these don't show up
 #RUN echo $SECRET_SECRET
-#RUN echo $SECOND_SECRET
+#RUN echo $SECOND_SECRETa
 
 #RUN bundle install
 RUN gem update --system
