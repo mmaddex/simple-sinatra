@@ -8,6 +8,10 @@ get '/' do
   "Tudo bem?!??!!!?"
 end
 
+get '/header' do
+  "Host header: #{request.host}"
+end
+
 get '/itsa/:status_code' do
   status params[:status_code].to_i
 end
