@@ -20,6 +20,10 @@ get '/env' do
   ENV.to_h.to_s
 end
 
+get '/request' do
+  request.to_s
+end
+
 get '/json' do
   puts 'JSON'
   puts ({test: 'error json', level: 'info', out: {with: [1,2]}}.to_json)
