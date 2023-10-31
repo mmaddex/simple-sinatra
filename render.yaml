@@ -5,7 +5,7 @@ services:
   autoDeploy: true
   ##plan: starter plus
   initialDeployHook: ./dephook.sh
-  name: simple-sinatra
+  name: Simple-sinatra
   env: ruby
   healthCheckPath: /health
   buildCommand: ./build.sh
