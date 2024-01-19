@@ -20,6 +20,9 @@ touch /opt/render/project/testfil/file.txt
 mkdir /opt/render/project/src/insrc
 touch /opt/render/project/src/insrc/file.txt
 
+echo "RENDER IS BUILDING FROM..."
+echo $RENDER_INSTANCE_ID
+
 echo $RENDER_PROJECT_CACHE_DIRS
 
 echo lsing
