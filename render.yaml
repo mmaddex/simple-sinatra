@@ -9,3 +9,12 @@ services:
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: ./run.sh
+
+- type: web
+  autoDeploy: true
+  initialDeployHook: ./dephook.sh
+  name: simple-sinatra-two
+  env: ruby
+  healthCheckPath: /health
+  buildCommand: ./build.sh
+  startCommand: ./run.sh
