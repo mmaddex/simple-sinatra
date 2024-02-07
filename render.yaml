@@ -11,5 +11,5 @@ services:
   buildCommand: ./build.sh
   startCommand: ./run.sh
 databases:
-  - name: testcustom
-  - plan: Custom 8 CPU / 8GB RAM / 256GB SSD
+- name: testcustom
+  plan: Custom 8 CPU / 8GB RAM / 256GB SSD
