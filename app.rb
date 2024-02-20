@@ -9,11 +9,10 @@ get '/' do
 end
 
 get '/header' do
-  p %{
-  Host header: #{request.host}
-  X-Forwarded-Proto: #{request['X-Forwarded-Proto']}
-  x-forwarded-proto: #{request['x-forwarded-proto']}
-  }%
+  puts "Host header: #{request.host}"
+  puts "x-forwarded-proto: #{request['x-forwarded-proto']}"
+  puts "X-Forwarded-Proto: #{request['X-Forwarded-Proto']}"
+  "X-Forwarded-Proto: #{request['X-Forwarded-Proto']}"
 end
 
 get '/itsa/:status_code' do
