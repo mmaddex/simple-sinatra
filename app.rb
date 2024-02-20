@@ -9,9 +9,11 @@ get '/' do
 end
 
 get '/header' do
-  "Host header: #{request.host}"
-  "X-Forwarded-Proto: #{request['X-Forwarded-Proto']}"
-  "x-forwarded-proto: #{request['x-forwarded-proto']}"
+  p %{
+  Host header: #{request.host}
+  X-Forwarded-Proto: #{request['X-Forwarded-Proto']}
+  x-forwarded-proto: #{request['x-forwarded-proto']}
+  }%
 end
 
 get '/itsa/:status_code' do
@@ -23,7 +25,8 @@ get '/env' do
 end
 
 get '/request' do
-  request.to_h.to_s
+  puts request
+  request
 end
 
 get '/json' do
