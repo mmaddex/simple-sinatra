@@ -81,16 +81,26 @@ get '/health' do
 end
 
 get '/healthfail' do
-  puts "from /health - #{ENV['RENDER_INSTANCE_ID']}"
-  status 500
-  "none korrect"
+  puts "from /healthfail - #{ENV['RENDER_INSTANCE_ID']}"
+  if Time.now.sec > 30
+    status 500
+    "none korrect"
+  else
+    status 200
+    "korrect four now"
+  end
 end
 
 get '/healthtimeout' do
   puts "timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']}" 
-  sleep(30.seconds)
-  status 200
-  "delayed korrect"
+  if Time.now.sec > 30
+    sleep(15.seconds)
+    status 200
+    "delayed korrect"
+  else
+    status 200
+    "korrect four now"
+  end
 end
 
 get '/api/utility/health' do
