@@ -81,7 +81,8 @@ get '/health' do
 end
 
 get '/healthfail' do
-  puts "from /healthfail - #{ENV['RENDER_INSTANCE_ID']}"
+  puts "from /healthfail - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.sec} after the minute"
+  puts Time.now.sec > 30
   if Time.now.sec > 30
     status 500
     "none korrect"
@@ -92,7 +93,8 @@ get '/healthfail' do
 end
 
 get '/healthtimeout' do
-  puts "timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']}" 
+  puts "timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.sec} after the minute" 
+  puts Time.now.sec > 30
   if Time.now.sec > 30
     sleep(15.seconds)
     status 200
