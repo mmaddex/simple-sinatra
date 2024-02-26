@@ -96,7 +96,7 @@ get '/healthtimeout' do
   puts "timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.min} minute" 
   puts Time.now.min%2 == 1
   if Time.now.min%2 == 1
-    sleep(15.seconds)
+    sleep 15
     status 200
     "delayed korrect"
   else
