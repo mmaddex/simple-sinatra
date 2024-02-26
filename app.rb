@@ -97,6 +97,7 @@ get '/healthtimeout' do
   puts Time.now.min%2 == 1
   if Time.now.min%2 == 1
     sleep 15
+    puts 'awake!'
     status 200
     "delayed korrect"
   else
