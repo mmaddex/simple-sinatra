@@ -86,6 +86,13 @@ get '/healthfail' do
   "none korrect"
 end
 
+get '/healthtimeout' do
+  puts "timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']}" 
+  sleep(30.seconds)
+  status 200
+  "delayed korrect"
+end
+
 get '/api/utility/health' do
   status 304
   "thanks fer #{params['token']}"
