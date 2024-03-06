@@ -1,4 +1,4 @@
 echo dephook
 echo testing > dephook.txt
-echo catdephook
+echo catdphook
 cat dephook.txt
