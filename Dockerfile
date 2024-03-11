@@ -12,6 +12,7 @@ FROM ruby:3.1.2
 ADD cron ./
 RUN echo "lsing"
 RUN ls ./
+RUN cat ./Dockerfile
 ADD config.ru /etc/
 RUN cat /etc/config.ru
 COPY ./* .
