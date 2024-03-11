@@ -9,11 +9,9 @@ FROM ruby:3.1.2
 
 #ARG RAILS_ENV
 #RUN echo $RAILS_ENV
-RUN echo "lsing"
-RUN ls
 ADD cron ./
-RUN echo "lsing cron"
-RUN ls cron/
+RUN echo "lsing"
+RUN ls ./
 ADD config.ru /etc/
 RUN cat /etc/config.ru
 COPY ./* .
