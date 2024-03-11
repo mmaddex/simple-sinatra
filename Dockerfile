@@ -24,10 +24,10 @@ RUN chmod +x /loads_secrets.sh
 #RUN echo $SECRET_SECRET
 #RUN echo $SECOND_SECRET
 
-#RUN bundle install
-RUN gem update --system
-RUN chmod +x /build.sh
-RUN /build.sh
+#RUN gem update --system
+#RUN chmod +x /build.sh
+#RUN /build.sh
+RUN bundle install
 COPY ./* .
 
 RUN chmod +x /run.sh
