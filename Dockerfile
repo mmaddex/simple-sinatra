@@ -10,6 +10,8 @@ FROM ruby:3.1.2
 #ARG RAILS_ENV
 #RUN echo $RAILS_ENV
 
+RUN ls
+RUN ls cron/
 ADD config.ru /etc/
 RUN cat /etc/config.ru
 COPY ./* .
