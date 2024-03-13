@@ -4,13 +4,13 @@ require 'json'
 get '/' do
   STDERR.puts "errrrrr"
   STDOUT.puts "ooooot"
-  puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
+  STDOUT.puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
   "Tudo bem?!??!!!?"
 end
 
 get '/header/:val' do
-  puts "Host header: #{request.host}"
-  puts "#{params[:val]} header is #{request[params[:val]]}"
+  STDOUT.puts "Host header: #{request.host}"
+  STDOUT.puts "#{params[:val]} header is #{request[params[:val]]}"
   "#{params[:val]} header is #{request[params[:val]]}"
 end
 
@@ -23,27 +23,27 @@ get '/env' do
 end
 
 get '/request' do
-  puts request
+  STDOUT.puts request
   request
 end
 
 get '/json' do
-  puts 'JSON'
-  puts ({test: 'error json', level: 'info', out: {with: [1,2]}}.to_json)
-  puts 'HASH'
-  puts ({test: 'warning hash', level: 'info', out: {with: [1,2]}})
-  puts 'pretty'
-  puts JSON.pretty_generate({test: 'info pretty', out: {with: [1,2]}})
+  STDOUT.puts 'JSON'
+  STDOUT.puts ({test: 'error json', level: 'info', out: {with: [1,2]}}.to_json)
+  STDOUT.puts 'HASH'
+  STDOUT.puts ({test: 'warning hash', level: 'info', out: {with: [1,2]}})
+  STDOUT.puts 'pretty'
+  STDOUT.puts JSON.pretty_generate({test: 'info pretty', out: {with: [1,2]}})
 end
 
 get '/appfile' do
-  puts "appfile"
+  STDOUT.puts "appfile"
   file = File.read('/opt/render/project/src/run.sh')
   file.to_s
 end
 
 get '/secretfile' do
-  puts "secretfile"
+  STDOUT.puts "secretfile"
   file = File.read('/etc/secrets/secret.json')
   # data_hash = JSON.parse(file)
   # data_hash.to_s
@@ -51,7 +51,7 @@ get '/secretfile' do
 end
 
 get '/rootsecretfile' do
-  puts "secretfile"
+  STDOUT.puts "secretfile"
   file = File.read('secret.json')
   # data_hash = JSON.parse(file)
   # data_hash.to_s
@@ -59,7 +59,7 @@ get '/rootsecretfile' do
 end
 
 get '/dotrootsecretfile' do
-  puts "secretfile"
+  STDOUT.puts "secretfile"
   file = File.read('./secret.json')
   # data_hash = JSON.parse(file)
   # data_hash.to_s
@@ -69,7 +69,7 @@ end
 get '/writefile' do
   File.write('/opt/render/project/test.it', 'Some glorious content', mode: 'a+')
   readit = File.read('/opt/render/project/test.it')
-  puts readit
+  STDOUT.puts readit
   readit
 end
 
