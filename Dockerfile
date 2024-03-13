@@ -9,6 +9,7 @@ FROM ruby:3.1.2
 
 #ARG RAILS_ENV
 #RUN echo $RAILS_ENV
+EXPOSE 5555
 ADD cron ./
 RUN echo "lsing"
 RUN ls ./
@@ -37,7 +38,7 @@ RUN chmod +x /run.sh
 
 #ENV PORT=5555
 
-#EXPOSE 5555
+#
 
 #ENTRYPOINT [ "/run.sh" ]
 CMD [ "/run.sh" ]
