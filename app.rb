@@ -8,11 +8,10 @@ get '/' do
   "Tudo bem?!??!!!?"
 end
 
-get '/header' do
+get '/header/:val' do
   puts "Host header: #{request.host}"
-  puts "x-forwarded-proto: #{request['x-forwarded-proto']}"
-  puts "X-Forwarded-Proto: #{request['X-Forwarded-Proto']}"
-  "X-Forwarded-Proto: #{request['X-Forwarded-Proto']}"
+  puts "#{params[:val]} header is #{request[params[:val]]}"
+  "#{params[:val]} header is #{request[params[:val]]}"
 end
 
 get '/itsa/:status_code' do
