@@ -9,9 +9,9 @@ get '/' do
 end
 
 get '/header/:val' do
-  STDOUT.puts "Host header: #{request.host}"
-  STDOUT.puts "#{params[:val]} header is #{request[params[:val]]}"
-  "#{params[:val]} header is #{request[params[:val]]}"
+  puts "Host header: #{request.host}"
+  puts "#{params[:val]} header is #{request.send params[:val]}"
+  "#{params[:val]} header is #{request.send params[:val]}"
 end
 
 get '/itsa/:status_code' do
