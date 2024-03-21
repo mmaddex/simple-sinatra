@@ -34,6 +34,21 @@ get '/json' do
   STDOUT.puts ({test: 'warning hash', level: 'info', out: {with: [1,2]}})
   STDOUT.puts 'pretty'
   STDOUT.puts JSON.pretty_generate({test: 'info pretty', out: {with: [1,2]}})
+  e = {"level":"info","service":"event-service","env":"sandbox","error":"Failed to fetch user details","stack":"Error: Failed to fetch user details\n    at https://sandbox.modules-7bj.pages.dev/assets/overlay-D3o9D5Es.js:3:17793","req_id":"","referer":"https://sandbox.modules-7bj.pages.dev/","origin":"https://sandbox.modules-7bj.pages.dev","user_agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1","meta":{"lang":"","market":""},"time":"2024-03-08T12:10:52Z","message":"error"}
+  puts e
+  puts e.to_json
+  puts e.to_s
+  puts JSON.pretty_generate(e)
+  "putted"
+end
+
+get '/error' do
+  e = {"level":"error","service":"event-service","env":"sandbox","error":"Failed to fetch user details","stack":"Error: Failed to fetch user details\n    at https://sandbox.modules-7bj.pages.dev/assets/overlay-D3o9D5Es.js:3:17793","req_id":"","referer":"https://sandbox.modules-7bj.pages.dev/","origin":"https://sandbox.modules-7bj.pages.dev","user_agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1","meta":{"lang":"","market":""},"time":"2024-03-08T12:10:52Z","message":"error"}
+  puts e
+  puts e.to_json
+  puts e.to_s
+  puts JSON.pretty_generate(e)
+  "putted"
 end
 
 get '/appfile' do
