@@ -1,8 +1,5 @@
 FROM ruby:3.1.2
 
-ENV GEM_HOME="/usr/local/bundle"
-ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
-
 #ARG SECRET_SECRET
 #ARG DASHBOARD_DEFINED
 #RUN echo $DASHBOARD_DEFINED
@@ -19,8 +16,8 @@ RUN ls ./
 RUN cat ./Dockerfile
 ADD config.ru /etc/
 RUN cat /etc/config.ru
-COPY ./* .
-RUN chmod +x /loads_secrets.sh
+#COPY ./* .
+#RUN chmod +x /loads_secrets.sh
 
 # broken RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.json cat /etc/secrets/secret.json
 #RUN --mount=type=secret,id=secret_file,dst=/etc/secrets/secret.json cat secret.json
@@ -36,6 +33,8 @@ RUN chmod +x /loads_secrets.sh
 #RUN /build.sh
 
 COPY ./* .
+#WORKDIR /code
+#COPY . /code
 RUN bundle install
 
 RUN chmod +x /run.sh
@@ -45,5 +44,6 @@ RUN chmod +x /run.sh
 #
 
 #ENTRYPOINT [ "/run.sh" ]
-CMD [ "/run.sh" ]
+CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0"]
+#CMD [ "/run.sh" ]
 #CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
