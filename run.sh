@@ -5,8 +5,6 @@
 
 #./casperjs_env.sh
 #source ~/.bashrc
-unset BUNDLE_PATH
-unset BUNDLE_BIN
 
 echo "starting on all the ports"
 echo $RENDER_INSTANCE_ID
