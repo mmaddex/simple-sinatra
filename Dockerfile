@@ -32,9 +32,9 @@ RUN cat /etc/config.ru
 #RUN chmod +x /build.sh
 #RUN /build.sh
 
-COPY ./* .
-#WORKDIR /code
-#COPY . /code
+#COPY ./* .
+WORKDIR /code
+COPY . /code
 RUN bundle install
 
 RUN chmod +x /run.sh
