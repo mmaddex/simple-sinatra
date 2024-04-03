@@ -3,6 +3,7 @@ previewsEnabled: true
 services:
 - type: web
   autoDeploy: true
+  branch: main
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
