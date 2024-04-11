@@ -11,3 +11,8 @@ services:
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: ./run.sh
+databases:
+  - name: moon-db
+    postgresMajorVersion: 14
+    databaseName: moon
+    plan: custom-8-16-256-2023
