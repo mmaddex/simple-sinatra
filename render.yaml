@@ -11,9 +11,9 @@ services:
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: ./run.sh
-envVars:
-      - key: PROXY_URL
-        fromService:
-          type: web
-          name: tinyproxy
-          property: host
+  envVars:
+    - key: PROXY_URL
+      fromService:
+        type: web
+        name: tinyproxy
+        property: host
