@@ -9,7 +9,7 @@ FROM ruby:3.1.2
 
 #ARG RAILS_ENV
 #RUN echo $RAILS_ENV
-RUN ech $RENDER_PROJECT_CACHE_DIRS
+RUN echo $RENDER_PROJECT_CACHE_DIRS
 ADD config.ru /etc/
 RUN cat /etc/config.ru
 
