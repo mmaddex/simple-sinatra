@@ -25,3 +25,6 @@ services:
         type: web
         name: tinyproxy
         property: host
+  buildFilter:
+    ignoredPaths:
+    - render.yaml
