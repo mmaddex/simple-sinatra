@@ -18,7 +18,7 @@ services:
   env: ruby
   healthCheckPath: /health
   buildCommand: ./build.sh
-  startCommand: ./run.sh
+  startCommand: bundle exec rackup
   envVars:
     - key: PROXY_URL
       fromService:
