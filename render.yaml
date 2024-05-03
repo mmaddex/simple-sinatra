@@ -14,7 +14,7 @@ services:
 - type: web
   autoDeploy: true
   branch: main
-  plan: Pro
+  plan: pro
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
@@ -31,3 +31,11 @@ services:
   buildFilter:
     ignoredPaths:
     - render.yaml
+- type: pserv
+  name: simple-sinatra-priv
+  runtime: docker
+  repo: https://github.com/mmaddex/simple-sinatra
+  plan: starter
+  region: oregon
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
