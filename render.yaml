@@ -8,6 +8,9 @@ services:
     url: docker.io/library/nginx:latest
   plan: starter
   autoDeploy: true
+  buildFilter:
+    ignoredPaths:
+    - render.yaml
 - type: web
   autoDeploy: true
   branch: main
