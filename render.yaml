@@ -5,7 +5,7 @@ services:
   name: containerz
   runtime: image
   image:
-    url: docker.io/library/nginx:perl
+    url: docker.io/library/nginx:latest
   plan: starter
   autoDeploy: true
 - type: web
