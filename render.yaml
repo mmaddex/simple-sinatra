@@ -33,7 +33,7 @@ services:
     - render.yaml
 - type: pserv
   name: simple-sinatra-priv
-  env: ruby
+  runtime: ruby
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
   #runtime: docker
