@@ -33,9 +33,13 @@ services:
     - render.yaml
 - type: pserv
   name: simple-sinatra-priv
-  runtime: docker
-  repo: https://github.com/mmaddex/simple-sinatra
+  env: ruby
+  healthCheckPath: /health
+  buildCommand: ./build.sh
+  startCommand: bundle exec rackup
+  #runtime: docker
+  #repo: https://github.com/mmaddex/simple-sinatra
   plan: starter
   region: oregon
-  dockerContext: .
-  dockerfilePath: ./Dockerfile
+  #dockerContext: .
+  #dockerfilePath: ./Dockerfile
