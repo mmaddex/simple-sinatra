@@ -13,7 +13,6 @@ services:
     - render.yaml
 - type: web
   autoDeploy: true
-  branch: main
   plan: pro
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
