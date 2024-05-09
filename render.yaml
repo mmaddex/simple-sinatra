@@ -6,14 +6,14 @@ services:
   runtime: image
   image:
     url: docker.io/library/nginx
-  plan: pro
+  plan: free
   autoDeploy: true
   buildFilter:
     ignoredPaths:
     - render.yaml
 - type: web
   autoDeploy: true
-  plan: pro
+  plan: free
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
@@ -37,7 +37,7 @@ services:
   startCommand: bundle exec rackup
   #runtime: docker
   #repo: https://github.com/mmaddex/simple-sinatra
-  plan: starter
+  plan: free
   region: oregon
   #dockerContext: .
   #dockerfilePath: ./Dockerfile
