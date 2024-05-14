@@ -23,6 +23,8 @@ services:
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
   envVars:
+    - key: TEST
+      value: works
     - key: PROXY_URL
       fromService:
         type: web
