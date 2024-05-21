@@ -3,7 +3,7 @@ require 'json'
 
 get '/' do
   STDERR.puts "errrrrr"
-  STDOUT.puts "ooooot"
+  STDOUT.puts "ooohoot"
   STDOUT.puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
   "DEV"
 end
