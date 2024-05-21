@@ -25,11 +25,7 @@ services:
   envVars:
     - key: TEST
       value: works
-    - key: PROXY_URL
-      fromService:
-        type: web
-        name: tinyproxy
-        property: host
+    - fromGroup: testgroup
   buildFilter:
     ignoredPaths:
     - render.yaml
