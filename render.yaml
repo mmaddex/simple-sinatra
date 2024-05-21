@@ -32,11 +32,21 @@ services:
 - type: pserv
   name: simple-sinatra-priv
   runtime: ruby
+  buildFilter:
+    ignoredPaths:
+    - render.yaml
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
   #runtime: docker
   #repo: https://github.com/mmaddex/simple-sinatra
   plan: starter
   region: oregon
+  envVars:
+    - fromGroup: from-yaml
   #dockerContext: .
   #dockerfilePath: ./Dockerfile
+envVarGroups:
+  - name: from-yaml
+    envVars:
+      - key: FROM_YAML
+        sync: false
