@@ -26,6 +26,7 @@ echo $RAILS_ENV
 
 # set -x
 # bundle exec puma
+echo "starting rackup"
 bundle exec rackup
 #& bundle exec puma -p 5557
 #bundle exec puma
