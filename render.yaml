@@ -15,6 +15,7 @@ services:
   autoDeploy: true
   branch: main
   plan: starter
+  preDeployCommand: echo $FROM_PRIV
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
@@ -25,7 +26,11 @@ services:
   envVars:
     - key: TEST
       value: works
-    - fromGroup: testgroup
+    - key: FROM_PRIV
+      fromService:
+        name: simple-sinatra-priv
+        type: pserv
+        property: host
   buildFilter:
     ignoredPaths:
     - render.yaml
