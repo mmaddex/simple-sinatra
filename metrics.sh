@@ -48,7 +48,7 @@ get_cpu_usage_for_period() {
     fi
 
     # Wait for the period (convert microseconds to seconds)
-    sleep_time=$(bc -l <<< "$period / 1e6")
+    sleep_time=$(awk "BEGIN {print $period / 1e6}")
     if [[ -z $sleep_time || $sleep_time == 0 ]]; then
         echo "Error: Invalid sleep time." >&2
         exit 1
