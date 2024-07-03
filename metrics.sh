@@ -26,6 +26,13 @@ calculate_cpu_percentage() {
 # Function to get CPU usage for a period
 get_cpu_usage_for_period() {
     read -r quota period <<< "$(get_cpu_limit)"
+    if [[ -z $quota || -z $period ]]; then
+        echo "Error: Failed to retrieve quota or period." >&2
+        exit 1
+    fi
+    
+    echo "Quota: $quota, Period: $period"  # Debugging output
+
     local metrics_start
     local metrics_end
     local usage_at_start
@@ -35,11 +42,28 @@ get_cpu_usage_for_period() {
     metrics_start=$(get_cpu_stat_metrics)
     usage_at_start=$(echo "$metrics_start" | grep -oP '(?<=usage_usec )[0-9]+')
 
+    if [[ -z $usage_at_start ]]; then
+        echo "Error: Failed to retrieve initial CPU usage." >&2
+        exit 1
+    fi
+
     # Wait for the period (convert microseconds to seconds)
-    sleep "$(bc -l <<< "$period / 1e6")"
+    sleep_time=$(bc -l <<< "$period / 1e6")
+    if [[ -z $sleep_time || $sleep_time == 0 ]]; then
+        echo "Error: Invalid sleep time." >&2
+        exit 1
+    fi
+    
+    echo "Sleeping for: $sleep_time seconds"  # Debugging output
+    sleep "$sleep_time"
 
     metrics_end=$(get_cpu_stat_metrics)
     usage_at_end=$(echo "$metrics_end" | grep -oP '(?<=usage_usec )[0-9]+')
+
+    if [[ -z $usage_at_end ]]; then
+        echo "Error: Failed to retrieve final CPU usage." >&2
+        exit 1
+    fi
 
     usage_for_period=$((usage_at_end - usage_at_start))
     calculate_cpu_percentage "$usage_for_period" "$quota"
