@@ -23,6 +23,8 @@ calculate_cpu_percentage() {
         echo "other calc"
         echo "scale=2; ($usage_for_period / ($quota/$period * 1.0)) * 100" | bc
         echo "raw usage: $usage_for_period"
+        echo "raw quota: $quota"
+        echo "raw period: $period"
     fi
 }
 
