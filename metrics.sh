@@ -20,6 +20,8 @@ calculate_cpu_percentage() {
         echo 100.0
     else
         echo "scale=2; ($usage_for_period / ($quota * 1.0)) * 100" | bc
+        echo "other calc"
+        echo "scale=2; ($usage_for_period / ($quota/$period * 1.0)) * 100" | bc
         echo "raw usage: $usage_for_period"
     fi
 }
@@ -41,12 +43,14 @@ get_cpu_usage_for_period() {
     local usage_for_period
 
     metrics_start=$(get_cpu_stat_metrics)
+    echo "metrics_start: $metrics_start"
     usage_at_start=$(echo "$metrics_start" | grep -oP '(?<=usage_usec )[0-9]+')
 
     if [[ -z $usage_at_start ]]; then
         echo "Error: Failed to retrieve initial CPU usage." >&2
         exit 1
     fi
+    echo "usage_at_start: $usage_at_start"
 
     # Wait for the period (convert microseconds to seconds)
     sleep_time=$(awk "BEGIN {print $period / 1e6}")
