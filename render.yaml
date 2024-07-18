@@ -6,7 +6,7 @@ services:
   runtime: image
   image:
     url: docker.io/library/nginx
-  plan: Dedicated 4 CPU / 16 GB RAM / 50 GB TMP
+  plan: standard
   autoDeploy: true
   buildFilter:
     ignoredPaths:
