@@ -14,7 +14,7 @@ services:
 - type: web
   autoDeploy: true
   branch: main
-  plan: Dedicated 4 CPU / 16 GB RAM / 50 GB TMP
+  plan: standard
   preDeployCommand: echo $FROM_PRIV
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
