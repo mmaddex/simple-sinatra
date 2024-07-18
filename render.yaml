@@ -1,21 +1,10 @@
 previewsEnabled: true
-#previewsExpireAfterDays: 1
+previewsExpireAfterDays: 1
 services:
-- type: web
-  name: containerz
-  runtime: image
-  image:
-    url: docker.io/library/nginx
-  plan: starter
-  autoDeploy: true
-  buildFilter:
-    ignoredPaths:
-    - render.yaml
 - type: web
   autoDeploy: true
   branch: main
   plan: standard
-  preDeployCommand: echo $FROM_PRIV
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
@@ -23,35 +12,6 @@ services:
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
-  envVars:
-    - key: TEST
-      value: works
-    - key: FROM_PRIV
-      fromService:
-        name: simple-sinatra-priv
-        type: pserv
-        property: host
   buildFilter:
     ignoredPaths:
     - render.yaml
-- type: pserv
-  name: simple-sinatra-priv
-  runtime: ruby
-  buildFilter:
-    ignoredPaths:
-    - render.yaml
-  buildCommand: ./build.sh
-  startCommand: bundle exec rackup
-  #runtime: docker
-  #repo: https://github.com/mmaddex/simple-sinatra
-  plan: starter
-  region: oregon
-  envVars:
-    - fromGroup: from-yaml
-  #dockerContext: .
-  #dockerfilePath: ./Dockerfile
-envVarGroups:
-  - name: from-yaml
-    envVars:
-      - key: FROM_YAML
-        sync: false
