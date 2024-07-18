@@ -5,6 +5,7 @@ services:
   autoDeploy: true
   branch: main
   plan: standard
+  region: ohio
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
