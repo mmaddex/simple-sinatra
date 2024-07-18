@@ -4,7 +4,7 @@ services:
 - type: web
   autoDeploy: true
   branch: main
-  plan: standard
+  plan: Dedicated 4 CPU / 16 GB RAM / 50 GB TMP
   region: ohio
 #  pullRequestPreviewsEnabled: true
   initialDeployHook: ./dephook.sh
