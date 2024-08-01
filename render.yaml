@@ -6,7 +6,7 @@ services:
   branch: main
   plan: standard
 #  pullRequestPreviewsEnabled: true
-  initialDeployHook: ./deaphook.sh
+  initialDeployHook: /opt/render/project/src/dephook.sh
   name: simple-sinatra
   env: ruby
   healthCheckPath: /health
