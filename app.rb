@@ -8,6 +8,10 @@ get '/' do
   "Tudo bem?!?!?!!?"
 end
 
+post '/test' do
+  "thats nice"
+end
+
 get '/header/:val' do
   puts "Host header: #{request.host}"
   puts "#{params[:val]} header is #{request.send params[:val]}"
