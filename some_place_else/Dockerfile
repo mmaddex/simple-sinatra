@@ -14,6 +14,7 @@ RUN echo $RENDER_PROJECT_CACHE_DIRS
 RUN echo $RENDER_INSTANCE_ID
 ADD config.ru /etc/
 RUN cat /etc/config.ru
+RUN rm -rf /opt/render-ssh
 
 WORKDIR /code
 #COPY . /code
