@@ -1,11 +1,11 @@
-previewsEnabled: true
-previewsExpireAfterDays: 1
+previews:
+  generation: automatic
+  expireAfterDays: 1
 services:
 - type: web
   autoDeploy: true
   branch: main
   plan: standard
-#  pullRequestPreviewsEnabled: true
   initialDeployHook: echo testing456
   name: simple-sinatra
   env: ruby
