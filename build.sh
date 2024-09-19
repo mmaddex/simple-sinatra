@@ -8,18 +8,6 @@
 #casperjs --version
 #phantomjs --version
 
-#echo testing > file.txt
-#echo catfile
-#cat file.txt
-
-#echo testingopenssl
-#echo '#testing' >> /usr/lib/ssl/openssl.cnf
-#echo '#testing' >> /etc/ssl/openssl.cnf
-mkdir /opt/render/project/testfil
-touch /opt/render/project/testfil/file.txt
-mkdir /opt/render/project/src/insrc
-touch /opt/render/project/src/insrc/file.txt
-
 echo "RENDER IS BUILDING FROM..."
 echo $RENDER_INSTANCE_ID
 
