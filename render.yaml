@@ -6,7 +6,7 @@ services:
   autoDeploy: false
   branch: main
   plan: standard
-  initialDeployHook: echo testing456
+  initialDeployHook: echo testing4567
   name: simple-sinatra
   env: ruby
   healthCheckPath: /health
