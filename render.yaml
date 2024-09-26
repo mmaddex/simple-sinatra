@@ -3,7 +3,7 @@ previews:
   expireAfterDays: 1
 services:
 - type: web
-  autoDeploy: true
+  autoDeploy: false
   branch: main
   plan: standard
   initialDeployHook: echo testing456
