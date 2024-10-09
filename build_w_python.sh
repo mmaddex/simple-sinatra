@@ -7,37 +7,36 @@
 #source ~/.bashrc
 #casperjs --version
 #phantomjs --version
-curl https://pyenv.run | bash
-## Load pyenv automatically by appending
-## the following to 
-## ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
-## and ~/.bashrc (for interactive shells) :
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# Variables
+PYTHON_VERSION="3.8.17"  # You can adjust the specific Python 3.8.x version here
 
-# Restart your shell for the changes to take effect.
-exec bash
+# Step 1: Install pyenv (if it's not installed)
+if ! command -v pyenv &> /dev/null; then
+    echo "pyenv not found, installing..."
+    curl https://pyenv.run | bash
+fi
 
-pyenv install 3.8.3
+# Step 2: Update .bashrc or .zshrc (whichever is used)
+if ! grep -q 'export PYENV_ROOT' ~/.bashrc; then
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(pyenv init --path)"' >> ~/.bashrc
+    echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+    source ~/.bashrc
+fi
 
+# Step 3: Install Python 3.8 using pyenv
+pyenv install "$PYTHON_VERSION"
+
+# Step 4: Set Python 3.8 as the default version
+pyenv global "$PYTHON_VERSION"
+
+# Step 5: Verify installation
+python --version
 pyenv versions
 
-pyenv global 3.8.3
-
-pyenv prefix
-
-python -V
-
-# Load pyenv-virtualenv automatically by adding
-# the following to ~/.bashrc:
-
-#eval "$(pyenv virtualenv-init -)"
-
-## matts stab at it
-#touch ~/.bashrc
-#echo 'eval "$(pyenv virtualenv-init -)"' > ~/.bashrc
+echo "Python $PYTHON_VERSION installed successfully via pyenv."
 
 
 echo "RENDER IS BUILDING FROM..."
