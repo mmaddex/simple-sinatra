@@ -96,7 +96,7 @@ get '/healthfail' do
   puts "from /healthfail - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.min} minute"
   puts Time.now.min%4 != 1
   if Time.now.min%4 != 1
-    status 500
+    status 429
     "none korrect"
   else
     status 200
@@ -106,8 +106,8 @@ end
 
 get '/healthtimeout' do
   puts "timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.min} minute" 
-  puts Time.now.min%2 == 1
-  if Time.now.min%2 == 1
+  puts Time.now.min%4 != 1
+  if Time.now.min%4 != 1
     sleep 15
     puts 'awake!'
     status 200
