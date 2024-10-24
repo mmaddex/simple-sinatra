@@ -1,4 +1,4 @@
-require 'sinatra'
+  require 'sinatra'
 require 'json'
 
 get '/' do
@@ -106,13 +106,15 @@ end
 
 get '/healthtimeout' do
   puts "timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.min} minute" 
-  puts Time.now.min%4 != 1
-  if Time.now.min%4 != 1
-    sleep 15
+  puts Time.now.min%5 != 1
+  if Time.now.min%5 != 1
+    puts 'wait for it'
+    sleep 10
     puts 'awake!'
-    status 200
-    "delayed korrect"
+    status 400
+    "delayed not korrect"
   else
+    puts 'instant!'
     status 200
     "korrect four now"
   end
