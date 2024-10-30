@@ -110,6 +110,7 @@ get '/threadhealth' do
   stats = JSON.parse(puma_stats)
   workers_count = stats['workers'] || 1
   total_threads = stats['worker_status'].sum { |worker| worker['last_status']['max_threads'] }
+  puts puma_stats
   puts "#{workers_count} workers"
   puts "#{total_threads} threads"
   if workers_count < 3
