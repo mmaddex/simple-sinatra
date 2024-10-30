@@ -1,5 +1,6 @@
-  require 'sinatra'
+require 'sinatra'
 require 'json'
+require 'puma'
 
 get '/' do
   STDERR.puts "errrrrr"
@@ -97,6 +98,22 @@ get '/healthfail' do
   puts Time.now.min%4 != 1
   if Time.now.min%4 != 1
     status 429
+    "none korrect"
+  else
+    status 200
+    "korrect four now"
+  end
+end
+
+get '/threadhealth' do
+  puma_stats = Puma.stats
+  stats = JSON.parse(puma_stats)
+  workers_count = stats['workers'] || 1
+  total_threads = stats['worker_status'].sum { |worker| worker['last_status']['max_threads'] }
+  puts "#{workers_count} workers"
+  puts "#{total_threads} threads"
+  if workers_count < 3
+    status 400
     "none korrect"
   else
     status 200
