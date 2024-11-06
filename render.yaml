@@ -15,3 +15,30 @@ services:
   buildFilter:
     ignoredPaths:
     - render.yaml
+# Exported from Render on 2024-11-06T20:03:34Z
+- type: pserv
+  name: pgbouncer
+  runtime: docker
+  repo: https://github.com/mmaddex/pgbouncer
+  plan: standard
+  envVars:
+  - key: DATABASE_URL
+    sync: false
+  - key: PORT
+    sync: false
+  - key: SERVER_RESET_QUERY
+    sync: false
+  - key: POOL_MODE
+    sync: false
+  - key: MAX_CLIENT_CONN
+    sync: false
+  - key: DEFAULT_POOL_SIZE
+    sync: false
+  - key: .env
+    sync: false
+  region: oregon
+  preDeployCommand: cat testingfromdockerfile.txt
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+version: "1"
+
