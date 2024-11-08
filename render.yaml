@@ -11,6 +11,7 @@ services:
   env: ruby
   healthCheckPath: /health
   buildCommand: ./build.sh
+  preDeployCommand: echo deppppp
   startCommand: bundle exec rackup
   buildFilter:
     ignoredPaths:
