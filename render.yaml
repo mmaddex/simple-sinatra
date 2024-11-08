@@ -6,13 +6,12 @@ services:
   autoDeploy: false
   branch: main
   plan: standard
-  initialDeployHook: echo testing4567
+  initialDeployHook: ./dephook.sh
   name: simple-sinatra
   env: ruby
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
-  initialDeployHook: ./dephook.sh
   buildFilter:
     ignoredPaths:
     - render.yaml
