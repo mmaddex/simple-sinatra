@@ -4,7 +4,6 @@ previews:
 services:
 - type: web
   autoDeploy: false
-  branch: main
   plan: standard
   initialDeployHook: ./dephook.sh
   name: simple-sinatra
