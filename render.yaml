@@ -1,6 +1,14 @@
 previews:
   generation: manual
   expireAfterDays: 1
+envVarGroups:
+- name: my-env-group
+  envVars:
+    - key: CONCURRENCY
+      value: 2
+      previewValue: 8
+    - key: SHARED_SECRET
+      generateValue: true
 services:
 - type: web
   autoDeploy: false
@@ -15,3 +23,5 @@ services:
   buildFilter:
     ignoredPaths:
     - render.yaml
+  envVars:
+  - fromGroup: my-env-group
