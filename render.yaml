@@ -24,9 +24,9 @@ services:
     ignoredPaths:
     - render.yaml
   envVars:
-    - key: FROMANOTHER 
-      fromService:
-        name: pgbouncer
-        type: pserv
-        property: host
+  - key: FROMANOTHER 
+    fromService:
+      name: pgbouncer
+      type: pserv
+      property: host
   - fromGroup: my-env-group
