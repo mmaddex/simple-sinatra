@@ -23,6 +23,12 @@ get '/itsa/:status_code' do
   status params[:status_code].to_i
 end
 
+get '/withresponseheaders' do
+  response.headers['x-test'] = 'matts header'
+  response.headers['accept-ranges'] = 'bytes'
+  'testing this out'
+end
+
 get '/env' do
   ENV.to_h.to_s
 end
