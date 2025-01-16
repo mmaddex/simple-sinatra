@@ -29,4 +29,5 @@ services:
       name: pgbouncer
       type: pserv
       property: host
+    previewValue: test-api-key
   - fromGroup: my-env-group
