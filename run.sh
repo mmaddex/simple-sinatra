@@ -12,7 +12,7 @@ echo $RENDER_SERVICE_ID
 echo $SSH_VAR
 echo $RAILS_ENV
 
-trap 'echo DOINGWHATEVERIWANT' SIGTERM SIGINT
+#trap 'echo DOINGWHATEVERIWANT' SIGTERM SIGINT
 
 #echo 'testmd'
 #cat test.md
