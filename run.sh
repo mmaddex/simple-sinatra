@@ -11,6 +11,9 @@ echo $RENDER_INSTANCE_ID
 echo $RENDER_SERVICE_ID
 echo $SSH_VAR
 echo $RAILS_ENV
+
+trap 'echo "DOING WHATEVER I WANT"' SIGTERM SIGINT
+
 #echo 'testmd'
 #cat test.md
 
