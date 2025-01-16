@@ -24,6 +24,9 @@ services:
     ignoredPaths:
     - render.yaml
   envVars:
+  - key: stupidtest
+    sync: false
+    previewValue: doesitwork
   - key: FROMANOTHER 
     fromService:
       name: pgbouncer
