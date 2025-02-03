@@ -43,4 +43,5 @@ RUN chmod +x /code/run.sh
 EXPOSE 22 3000
 
 # Start both SSH and the Ruby application
-CMD service ssh start && /code/run.sh
+# CMD service ssh start && /code/run.sh
+CMD /code/run.sh
