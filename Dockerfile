@@ -19,8 +19,8 @@ RUN mkdir -p /root/.ssh && chmod 0700 /root/.ssh && chown root:root /root/.ssh
 # RUN --mount=type=secret,id=_pubkey,dst=/etc/secrets/.pubkey cp /etc/secrets/.pubkey /home/dockeruser/.ssh/authorized_keys
 
 # Ensure proper permissions on authorized_keys
-RUN chmod 0600 /home/dockeruser/.ssh/authorized_keys && \
-    chown dockeruser:dockeruser /home/dockeruser/.ssh/authorized_keys
+# RUN chmod 0600 /home/dockeruser/.ssh/authorized_keys && \
+#     chown dockeruser:dockeruser /home/dockeruser/.ssh/authorized_keys
 
 # Configure SSH to allow key authentication and ensure root access is enabled
 RUN sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config && \
