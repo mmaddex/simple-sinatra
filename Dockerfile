@@ -16,7 +16,7 @@ RUN useradd -m -s /bin/bash dockeruser && \
 RUN mkdir -p /root/.ssh && chmod 0700 /root/.ssh && chown root:root /root/.ssh
 
 # Copy the public key from the secret location into the authorized_keys file for dockeruser
-RUN --mount=type=secret,id=_env,dst=./.pubkey cp ./.pubkey /home/dockeruser/.ssh/authorized_keys
+RUN --mount=type=secret,id=_pubkey,dst=/etc/secrets/.pubkey cp /etc/secrets/.pubkey /home/dockeruser/.ssh/authorized_keys
 
 # Ensure proper permissions on authorized_keys
 RUN chmod 0600 /home/dockeruser/.ssh/authorized_keys && \
