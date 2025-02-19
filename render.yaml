@@ -22,7 +22,7 @@ services:
   - key: stupidtest
     value: prodval
     sync: true
-    previewValue: doesitwork
+    previewValue: doesitworka
 - type: web
   autoDeploy: true
   branch: main
