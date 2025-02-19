@@ -20,7 +20,8 @@ services:
   startCommand: bundle exec rackup
   envVars:
   - key: stupidtest
-    sync: false
+    value: prodval
+    sync: true
     previewValue: doesitwork
 - type: web
   autoDeploy: true
@@ -34,7 +35,8 @@ services:
   startCommand: bundle exec rackup
   envVars:
   - key: stupidtest
-    sync: false
+    value: otherprod
+    sync: true
     previewValue: doesitwork
   - key: FROMANOTHER 
     fromService:
