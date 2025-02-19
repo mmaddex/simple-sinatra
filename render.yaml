@@ -23,7 +23,7 @@ services:
     - render.yaml
   envVars:
   - key: stupidtest
-    value: prodval
+    value: prodvalaA
     sync: true
     previewValue: doesitworkaa
 - type: web
