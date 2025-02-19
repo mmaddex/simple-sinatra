@@ -18,9 +18,6 @@ services:
   env: ruby
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
-  buildFilter:
-    ignoredPaths:
-    - render.yaml
   envVars:
   - key: stupidtest
     value: prodvalaA
@@ -36,9 +33,6 @@ services:
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
-  buildFilter:
-    ignoredPaths:
-    - render.yaml
   envVars:
   - key: stupidtest
     value: otherprod
