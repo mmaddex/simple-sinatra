@@ -10,8 +10,21 @@ envVarGroups:
     - key: SHARED_SECRET
       generateValue: true
 services:
+- type: pserv
+  autoDeploy: true
+  branch: main
+  plan: standard
+  name: simple-sinatra-priv
+  env: ruby
+  healthCheckPath: /health
+  buildCommand: ./build.sh
+  startCommand: bundle exec rackup
+  envVars:
+  - key: stupidtest
+    sync: false
+    previewValue: doesitwork
 - type: web
-  autoDeploy: false
+  autoDeploy: true
   branch: main
   plan: standard
   initialDeployHook: ./dephook.sh
@@ -20,9 +33,6 @@ services:
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
-  buildFilter:
-    ignoredPaths:
-    - render.yaml
   envVars:
   - key: stupidtest
     sync: false
