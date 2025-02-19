@@ -16,7 +16,6 @@ services:
   plan: standard
   name: simple-sinatra-priv
   env: ruby
-  healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
   envVars:
