@@ -37,6 +37,11 @@ get '/itsa/:status_code' do
   status params[:status_code].to_i
 end
 
+get '/headers' do
+  headers = request.env.select { |k, v| k.start_with?('HTTP_') }
+  headers.map { |k, v| "#{k}: #{v}" }.join("\n")
+end
+
 get '/withresponseheaders' do
   response.headers['x-test'] = 'matts header'
   response.headers['accept-ranges'] = 'bytes'
