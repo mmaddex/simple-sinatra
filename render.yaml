@@ -11,7 +11,7 @@ envVarGroups:
       generateValue: true
 services:
 - type: pserv
-  autoDeploy: false
+  autoDeploy: true
   branch: main
   plan: standard
   name: simple-sinatra-priv
