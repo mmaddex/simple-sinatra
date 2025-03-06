@@ -1,6 +1,6 @@
 previews:
   generation: manual
-  expireAfterDays: 1
+  expireAfterDays: 2
 envVarGroups:
 - name: my-env-group
   envVars:
