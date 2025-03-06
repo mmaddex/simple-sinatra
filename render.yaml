@@ -20,7 +20,7 @@ services:
   startCommand: bundle exec rackup
   envVars:
   - key: stupidtest
-    value: prodvalaAa
+    value: prodvalaAabbb
     sync: true
     previewValue: doesitworkaaA
 - type: web

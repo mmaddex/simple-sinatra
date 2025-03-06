@@ -20,7 +20,7 @@ get '/' do
   STDERR.puts "errrrrr"
   STDOUT.puts "ooooot"
   STDOUT.puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
-  "Tudo bem?!?!!?!!!??!@!@!!!!@!!!aa!?\n\n"
+  "Tudo bem?!?!!?!!!??!@!@!!!!@!!!aa!1?\n\n"
 end
 
 post '/test' do
