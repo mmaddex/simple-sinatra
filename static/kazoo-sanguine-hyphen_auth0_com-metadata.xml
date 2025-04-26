@@ -1,0 +1,23 @@
+<EntityDescriptor entityID="urn:kazoo-sanguine-hyphen.auth0.com" xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+  <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <X509Data>
+          <X509Certificate>MIIDGTCCAgGgAwIBAgIJLHILsuJqJn6jMA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNVBAMTH2them9vLXNhbmd1aW5lLWh5cGhlbi5hdXRoMC5jb20wHhcNMjEwMzA0MTcyNjQ4WhcNMzQxMTExMTcyNjQ4WjAqMSgwJgYDVQQDEx9rYXpvby1zYW5ndWluZS1oeXBoZW4uYXV0aDAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1Jlbud3s3S9Nvnw//n5GHUIJsSyMYA3Z3VBcrEni2mqQbKyReKrR/GsVtxO9NXtllPXNTh7rajEKC7tgvPQV89S/EuyMxTSwHPBRfLxVzjlQLqNYRZ+98cOjCYBLT5YQaeKTh5zZJEYGlLT1pof2c8aP5SZUhnq5AS6oEjFPPxqfd5QQbgXT76VbA19CUzFa4qcGxrDe2x7yaKmBcTJnRccF6bCnN+IDSRw7W4RMI3rPLQD0fA6HoQa7MVrfFE+eBpo8PFTMVRaQYfUbjlg39aFEChPVwGjoH0jSLKaApHwSJxACYgRPiX98yxfcSbDh6wmvyXXTHorg/yIfUrQP/QIDAQABo0IwQDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTVYr1GDH9XQaTDcO9XmIsGr4dN6DAOBgNVHQ8BAf8EBAMCAoQwDQYJKoZIhvcNAQELBQADggEBALln947tzKH0Bhw+v7O/N+T9JF28TLCyBKgpoYz4Wrq/xatHbjrMKYd4Xu0SfLIrADeN2UbMv0zq72abehee992tcB3+uqkZU8j0txoU1iF06mWKgL5fI8b91WVcmp1++VkPPvUoEokf0saLoMePCvOIyUca/+WcgjFYgdbW/WlJo8eqTCAHSAAafDeVV321yTOV4DBpbVzIP69ibxreU0yfaqTs+Mj4rARBUgY93txE/tMdVpQ8EljoTzPHqNZmY1BiRmB148jEOLXaJxw+hyr/EpJ2YlOxe9k4W9b+d42enXzXxhOtbqpwqouahgznLCUSj8oRTZXNAqgtbD7bLCY=</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </KeyDescriptor>
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kazoo-sanguine-hyphen.auth0.com/samlp/hJB4WWOWOXkBAXLrDMGs0IVaK9JeTbON/logout"/>
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kazoo-sanguine-hyphen.auth0.com/samlp/hJB4WWOWOXkBAXLrDMGs0IVaK9JeTbON/logout"/>
+    <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kazoo-sanguine-hyphen.auth0.com/samlp/hJB4WWOWOXkBAXLrDMGs0IVaK9JeTbON"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kazoo-sanguine-hyphen.auth0.com/samlp/hJB4WWOWOXkBAXLrDMGs0IVaK9JeTbON"/>
+    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="E-Mail Address" xmlns="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Given Name" xmlns="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name" xmlns="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Surname" xmlns="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="Name ID" xmlns="urn:oasis:names:tc:SAML:2.0:assertion"/>
+  </IDPSSODescriptor>
+</EntityDescriptor>
