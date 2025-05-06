@@ -17,6 +17,8 @@ Signal.trap("INT") do
 end
 
 get '/' do
+  cache_control :public, :must_revalidate, max_age: 600
+  headers['Cache-Control'] += ", stale-while-revalidate=#{300}"
   STDERR.puts "errrrrr"
   STDOUT.puts "ooooot"
   STDOUT.puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
