@@ -27,7 +27,7 @@ services:
   autoDeploy: false
   branch: main
   plan: standard
-  initialDeployHook: ./dephook.sh
+  initialDeployHook: pip install requests python-dotenv && python setup_preview_domain.py preview-${RENDER_SERVICE_SLUG}.mattmaddex.com
   name: simple-sinatra
   env: ruby
   healthCheckPath: /health
@@ -45,3 +45,4 @@ services:
       property: host
     previewValue: test-api-key
   - fromGroup: my-env-group
+  - fromGroup: cloudflare
