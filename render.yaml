@@ -27,7 +27,7 @@ services:
   autoDeploy: false
   branch: main
   plan: standard
-  initialDeployHook: pip install requests python-dotenv && python setup_preview_domain.py preview-${RENDER_SERVICE_SLUG}.mattmaddex.com
+  initialDeployHook: python3 pr_custom_domains.py ${RENDER_SERVICE_SLUG}.mattmaddex.com
   name: simple-sinatra
   env: ruby
   healthCheckPath: /health
