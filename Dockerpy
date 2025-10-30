@@ -1,1 +1,11 @@
-from python:3.9.24-trixie
+FROM python:3.9.24-trixie
+
+# Create a simple Python script
+RUN echo 'import time\n\
+from datetime import datetime\n\
+\n\
+while True:\n\
+    print(f"Current time: {datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")}", flush=True)\n\
+    time.sleep(30)' > /app.py
+
+CMD ["python", "-u", "/app.py"]
