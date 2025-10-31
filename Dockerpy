@@ -1,5 +1,6 @@
 FROM python:3.9.24-trixie
 COPY . ./
 RUN pip3 install py-spy
-CMD ["python3", "-u", "app.py"]
-#CMD ["py-spy", "top", "--", "python", "-u", "app.py"]
+#CMD ["python3", "-u", "app.py"]
+CMD ["py-spy", "record", "-o", "/tmp/profile.svg", "--duration", "60", "--", "python", "-u", "app.py"]
+
