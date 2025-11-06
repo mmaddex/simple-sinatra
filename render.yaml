@@ -25,7 +25,7 @@ services:
     previewValue: doesitworkaaA
 - type: web
   autoDeploy: false
-  branch: main
+  branch: mmaddex-patch-1
   plan: standard
   initialDeployHook: python3 pr_custom_domains.py ${RENDER_SERVICE_SLUG}.mattmaddex.com
   name: simple-sinatra
