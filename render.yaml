@@ -1,48 +1,28 @@
+# Exported from Render on 2025-12-09T17:41:58Z
+version: "1"
 previews:
-  generation: manual
-  expireAfterDays: 2
-envVarGroups:
-- name: my-env-group
-  envVars:
-    - key: CONCURRENCY
-      value: 2
-      previewValue: 8
-    - key: SHARED_SECRET
-      generateValue: true
-services:
-- type: pserv
-  autoDeploy: true
-  branch: main
-  plan: standard
-  name: simple-sinatra-priv
-  env: ruby
-  buildCommand: ./build.sh
-  startCommand: bundle exec rackup
-  envVars:
-  - key: stupidtest
-    value: prodvalaAabbb
-    sync: true
-    previewValue: doesitworkaaA
-- type: web
-  autoDeploy: false
-  branch: main
-  plan: standard
-  initialDeployHook: python3 pr_custom_domains.py ${RENDER_SERVICE_SLUG}.mattmaddex.com
-  name: simple-sinatra
-  env: ruby
-  healthCheckPath: /health
-  buildCommand: ./build.sh
-  startCommand: bundle exec rackup
-  envVars:
-  - key: stupidtest
-    value: otherprod
-    sync: true
-    previewValue: doesitwork
-  - key: FROMANOTHER 
-    fromService:
-      name: pgbouncer
-      type: pserv
-      property: host
-    previewValue: test-api-key
-  - fromGroup: my-env-group
-  - fromGroup: cloudflare
+  generation: automatic
+projects:
+- name: Examples
+  environments:
+  - name: Blocked cross-env connection
+    networking:
+      isolation: enabled
+    services:
+    - type: web
+      name: simple-sinatra-a3sh
+      runtime: ruby
+      branch: cross-env-test
+      plan: standard
+      envVars:
+      - key: FROMANOTHER
+        sync: false
+      - key: stupidtest
+        sync: false
+      - fromGroup: my-env-group-a3sh
+      - fromGroup: cloudflare
+      region: oregon
+      buildCommand: ./build.sh
+      startCommand: bundle exec rackup
+      healthCheckPath: /health
+      autoDeployTrigger: "off"
