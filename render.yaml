@@ -25,4 +25,4 @@ projects:
       buildCommand: ./build.sh
       startCommand: bundle exec rackup
       healthCheckPath: /health
-      autoDeployTrigger: "off"
+      autoDeployTrigger: commit
