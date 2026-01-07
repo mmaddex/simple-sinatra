@@ -22,7 +22,7 @@ projects:
       - fromGroup: my-env-group-a3sh
       - fromGroup: cloudflare
       region: oregon
-      buildCommand: ./build.sh
+      buildCommand: bundle install
       startCommand: bundle exec rackup
       healthCheckPath: /health
       autoDeployTrigger: commit
