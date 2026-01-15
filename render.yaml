@@ -18,6 +18,7 @@ services:
   env: ruby
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
+  preDeployCommand: echo "from pre $RENDER_INSTANCE_ID"
   envVars:
   - key: stupidtest
     value: prodvalaAabbb
@@ -33,6 +34,7 @@ services:
   healthCheckPath: /health
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
+  preDeployCommand: echo "from pre $RENDER_INSTANCE_ID"
   envVars:
   - key: stupidtest
     value: otherprod
