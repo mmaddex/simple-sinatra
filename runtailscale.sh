@@ -6,5 +6,5 @@ echo Tailscale started
 
 #ALL_PROXY=socks5://localhost:1055/ HTTP_PROXY=http://localhost:1055/ http_proxy=http://localhost:1055/ rackup -o 0.0.0.0
 #ALL_PROXY=socks5://localhost:1055/ rackup -o 0.0.0.0 -p 80
-ALL_PROXY=socks5://localhost:1055/ bundle exec puma -b 127.0.0.1 -p 80
+ALL_PROXY=socks5://localhost:1055/ bundle exec puma -p 80
 #rackup -o 0.0.0.0
