@@ -1,0 +1,28 @@
+FROM ruby:3.3.0
+
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
+
+RUN ls ./
+RUN echo $RENDER_PROJECT_CACHE_DIRS
+ADD config.ru /etc/
+RUN cat /etc/config.ru
+
+WORKDIR /code
+#COPY . /code
+COPY . ./
+RUN bundle install
+RUN ls ./
+
+#CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0"]
+
+
+
+EXPOSE 80
+COPY --from=docker.io/tailscale/tailscale:stable /usr/local/bin/tailscaled /src/tailscaled
+COPY --from=docker.io/tailscale/tailscale:stable /usr/local/bin/tailscale /src/tailscale
+RUN mkdir -p /var/run/tailscale /var/cache/tailscale /var/lib/tailscale
+
+RUN chmod +x /code/runtailscale.sh
+
+ENTRYPOINT ["/code/runtailscale.sh"]
