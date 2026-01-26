@@ -35,6 +35,8 @@ services:
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
   preDeployCommand: echo "from pre $RENDER_INSTANCE_ID"
+  previews:
+    generation: off
   envVars:
   - key: stupidtest
     value: otherprod
