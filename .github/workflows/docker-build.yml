@@ -53,3 +53,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Deploy to Render
+        if: github.event_name != 'pull_request'
+        run: curl -X POST "https://api.render.com/deploy/srv-d5t3l0k9c44c739mi5q0?key=${{ secrets.RENDER_DEPLOY_KEY }}"
