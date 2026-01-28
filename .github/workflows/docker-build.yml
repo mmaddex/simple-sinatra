@@ -2,9 +2,9 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [main]
+    branches: [image_builder]
   pull_request:
-    branches: [main]
+    branches: [image_builder]
 
 env:
   REGISTRY: ghcr.io
