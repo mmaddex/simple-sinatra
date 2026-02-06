@@ -115,7 +115,7 @@ get '/writefile' do
 end
 
 get '/health' do
-  puts "HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - #{request.url}"
+  puts "SECOND HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - #{request.url}"
   status 200
   "orl korrect"
 end
