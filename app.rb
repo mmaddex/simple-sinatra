@@ -19,13 +19,13 @@ end
 get '/' do
   cache_control :public, :must_revalidate, max_age: ENV['MAX_AGE']
   headers['Cache-Control'] += ", stale-while-revalidate=#{ENV['STALE']}"
-  STDERR.puts "errrrrr"
-  STDOUT.puts "ooooot"
-  STDOUT.puts "from / - #{ENV['RENDER_INSTANCE_ID']}"
-  "IMAGE BACKED SERVICE: Tudo bem?!?!!a?eeeaaa!1!a!aaa?1?1!!@!@!!!!@>!!!aa!1?\n\n#{Time.now.to_i}"
+  # headers['Cache-Control'] += ", stale-while-revalidate=#{ENV['STALE']}"
+  "Image Backed Service: Tudo bem?\n\n#{Time.now.to_i}\n\n#{request.url}\n\n#{ENV['RENDER_INSTANCE_ID']}"
 end
 
 post '/test' do
+  STDERR.puts "errrrrr"
+  STDOUT.puts "ooooot"
   "thats nice"
 end
 
@@ -115,7 +115,7 @@ get '/writefile' do
 end
 
 get '/health' do
-  #puts "Health check reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - #{request.url}"
+  puts "SECOND HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - #{request.url}"
   status 200
   "orl korrect"
 end
