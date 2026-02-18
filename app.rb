@@ -168,3 +168,38 @@ get '/api/utility/health' do
   status 304
   "thanks fer #{params['token']}"
 end
+
+get '/cert' do
+  tls_keys = %w[
+    SSL_CLIENT_CERT
+    SSL_CLIENT_S_DN
+    SSL_CLIENT_I_DN
+    SSL_CLIENT_VERIFY
+    SSL_SERVER_CERT
+    SSL_SERVER_S_DN
+    SSL_CIPHER
+    SSL_PROTOCOL
+    SSL_SESSION_ID
+    HTTPS
+    HTTP_X_FORWARDED_PROTO
+    HTTP_X_FORWARDED_SSL
+    HTTP_X_SSL_CLIENT_CERT
+    HTTP_X_SSL_CLIENT_VERIFY
+    HTTP_X_SSL_CIPHER
+    HTTP_X_SSL_PROTOCOL
+    puma.ssl_cipher
+    puma.ssl_protocol
+  ]
+
+  tls_info = tls_keys.each_with_object({}) do |key, h|
+    val = request.env[key]
+    h[key] = val if val
+  end
+
+  content_type :text
+  if tls_info.empty?
+    "No TLS information found in request.\n"
+  else
+    tls_info.map { |k, v| "#{k}: #{v}" }.join("\n") + "\n"
+  end
+end
