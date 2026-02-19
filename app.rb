@@ -1,6 +1,20 @@
 require 'sinatra'
 require 'json'
 require 'puma'
+
+class UrlSchemeLogger
+  def initialize(app)
+    @app = app
+  end
+
+  def call(env)
+    original_scheme = env['rack.url_scheme']
+    puts "[UrlSchemeLogger] rack.url_scheme before stack: #{original_scheme.inspect}"
+    @app.call(env)
+  end
+end
+
+use UrlSchemeLogger
 # Set up a trap for SIGTERM
 Signal.trap("TERM") do
   puts "Received SIGTERM, shutting down gracefully..."
