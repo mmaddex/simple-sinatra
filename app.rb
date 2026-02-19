@@ -189,6 +189,9 @@ get '/cert' do
     HTTP_X_SSL_PROTOCOL
     puma.ssl_cipher
     puma.ssl_protocol
+    REQUEST_URI
+    HTTP_HOST
+    rack.url_scheme
   ]
 
   tls_info = tls_keys.each_with_object({}) do |key, h|
