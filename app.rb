@@ -128,7 +128,8 @@ get '/writefile' do
 end
 
 get '/health' do
-  puts "SECOND HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - #{request.url} - host: #{request.host}"
+  actual_url = "#{request.env['rack.url_scheme']}://#{request.env['SERVER_NAME']}:#{request.env['SERVER_PORT']}#{request.env['PATH_INFO']}"
+  puts "SECOND HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - host header: #{request.host} - actual url: #{actual_url}"
   status 200
   "orl korrect"
 end
