@@ -17,7 +17,7 @@ end
 use UrlSchemeLogger
 # Set up a trap for SIGTERM
 Signal.trap("TERM") do
-  puts "Received SIGTERM, shutting down gracefully..."
+  puts "Received SIGTERM, shutting down gracefully.!.."
   # Perform any cleanup here, e.g., closing database connections
   sleep 5 # Simulate cleanup time
   exit 0
