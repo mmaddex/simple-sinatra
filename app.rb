@@ -1,6 +1,20 @@
 require 'sinatra'
 require 'json'
 require 'puma'
+
+class UrlSchemeLogger
+  def initialize(app)
+    @app = app
+  end
+
+  def call(env)
+    original_scheme = env['rack.url_scheme']
+    puts "[UrlSchemeLogger] rack.url_scheme before stack: #{original_scheme.inspect}"
+    @app.call(env)
+  end
+end
+
+use UrlSchemeLogger
 # Set up a trap for SIGTERM
 Signal.trap("TERM") do
   puts "Received SIGTERM, shutting down gracefully..."
@@ -115,7 +129,8 @@ get '/writefile' do
 end
 
 get '/health' do
-  puts "SECOND HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - #{request.url}"
+  actual_url = "#{request.env['rack.url_scheme']}://#{request.env['SERVER_NAME']}:#{request.env['SERVER_PORT']}#{request.env['PATH_INFO']}"
+  puts "SECOND HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - host header: #{request.host} - actual url: #{actual_url}"
   status 200
   "orl korrect"
 end
@@ -190,6 +205,9 @@ get '/cert' do
     HTTP_X_SSL_PROTOCOL
     puma.ssl_cipher
     puma.ssl_protocol
+    REQUEST_URI
+    HTTP_HOST
+    rack.url_scheme
   ]
 
   tls_info = tls_keys.each_with_object({}) do |key, h|
