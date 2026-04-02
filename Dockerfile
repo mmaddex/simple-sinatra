@@ -18,6 +18,7 @@ WORKDIR /code
 #COPY . /code
 COPY . ./
 RUN bundle install
+RUN apt-get remove -y openssh-server && apt-get autoremove -y
 RUN ls ./
 
 #CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0"]
