@@ -21,5 +21,6 @@ RUN bundle install
 RUN ls ./
 
 #CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0"]
+RUN mkdir -p /opt/render-ssh/bin && printf '#!/bin/sh\nexit 0\n' > /opt/render-ssh/bin/sshd && chmod +x /opt/render-ssh/bin/sshd
 RUN chmod +x /code/run.sh
 ENTRYPOINT ["/code/run.sh"]
