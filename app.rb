@@ -38,7 +38,7 @@ get '/' do
 end
 
 get '/testvar' do
-  "testvar #{ENV['tesvar']}"
+  "#{ENV['RENDER_INSTANCE_ID']}: #{ENV['testvar']}"
 end
 
 post '/test' do
