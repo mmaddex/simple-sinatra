@@ -37,6 +37,10 @@ get '/' do
   "Image Backed Service: Tudo bem?\n\n#{Time.now.to_i}\n\n#{request.url}\n\n#{ENV['RENDER_INSTANCE_ID']}\n#{request.ip}"
 end
 
+get '/testvar' do
+  "testvar #{ENV['tesvar']}"
+end
+
 post '/test' do
   STDERR.puts "errrrrr"
   STDOUT.puts "ooooot"
