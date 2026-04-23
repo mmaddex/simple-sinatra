@@ -189,6 +189,39 @@ get '/api/utility/health' do
   "thanks fer #{params['token']}"
 end
 
+get '/use-memory/:mb' do
+  target_mb = params[:mb].to_i
+  target_bytes = target_mb * 1024 * 1024
+  start_time = Time.now
+  duration = 60
+  ramp_duration = 30
+
+  chunks = []
+  chunk_size = 1024 * 1024  # 1 MB per chunk
+
+  until Time.now - start_time >= duration
+    elapsed = Time.now - start_time
+    current_target = if elapsed < ramp_duration
+      (target_bytes * (elapsed / ramp_duration)).to_i
+    else
+      target_bytes
+    end
+
+    current_bytes = chunks.sum(&:bytesize)
+
+    if current_bytes < current_target
+      chunks << ("x" * [chunk_size, current_target - current_bytes].min)
+    end
+
+    sleep 0.1
+  end
+
+  chunks = nil
+  GC.start
+
+  "Held #{target_mb}MB for #{duration}s (ramped over #{ramp_duration}s)\n"
+end
+
 get '/cert' do
   tls_keys = %w[
     SSL_CLIENT_CERT
