@@ -2,6 +2,10 @@ require 'sinatra'
 require 'json'
 require 'puma'
 
+def log(msg, stream: STDOUT)
+  stream.puts({ tag: "fromsinatra", message: msg.to_s }.to_json)
+end
+
 class UrlSchemeLogger
   def initialize(app)
     @app = app
@@ -9,7 +13,7 @@ class UrlSchemeLogger
 
   def call(env)
     original_scheme = env['rack.url_scheme']
-    puts "[UrlSchemeLogger] rack.url_scheme before stack: #{original_scheme.inspect}"
+    log("[UrlSchemeLogger] rack.url_scheme before stack: #{original_scheme.inspect}")
     @app.call(env)
   end
 end
@@ -17,7 +21,7 @@ end
 use UrlSchemeLogger
 # Set up a trap for SIGTERM
 Signal.trap("TERM") do
-  puts "Received SIGTERM, shutting down gracefully..."
+  log("Received SIGTERM, shutting down gracefully...")
   # Perform any cleanup here, e.g., closing database connections
   sleep 5 # Simulate cleanup time
   exit 0
@@ -25,7 +29,7 @@ end
 
 # Set up a trap for SIGINT (e.g., Ctrl+C)
 Signal.trap("INT") do
-  puts "Received SIGINT, shutting down gracefully..."
+  log("Received SIGINT, shutting down gracefully...")
   # Perform any cleanup here
   exit 0
 end
@@ -42,14 +46,14 @@ get '/testvar' do
 end
 
 post '/test' do
-  STDERR.puts "errrrrr"
-  STDOUT.puts "ooooot"
+  log("errrrrr", stream: STDERR)
+  log("ooooot")
   "thats nice"
 end
 
 get '/header/:val' do
-  puts "Host header: #{request.host}"
-  puts "#{params[:val]} header is #{request.send params[:val]}"
+  log("Host header: #{request.host}")
+  log("#{params[:val]} header is #{request.send params[:val]}")
   "#{params[:val]} header is #{request.send params[:val]}"
 end
 
@@ -73,36 +77,36 @@ get '/env' do
 end
 
 get '/request' do
-  STDOUT.puts request
+  log(request.to_s)
   request
 end
 
 get '/info' do
   e = {"level":"info","service":"event-service","env":"sandbox","error":"Failed to fetch user details","stack":"Error: Failed to fetch user details\n    at https://sandbox.modules-7bj.pages.dev/assets/overlay-D3o9D5Es.js:3:17793","req_id":"","referer":"https://sandbox.modules-7bj.pages.dev/","origin":"https://sandbox.modules-7bj.pages.dev","user_agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1","meta":{"lang":"","market":""},"time":"2024-03-08T12:10:52Z","message":"error"}
-  puts e.to_json
+  puts e.merge(tag: "fromsinatra").to_json
   JSON.pretty_generate(e)
 end
 
 get '/warning' do
   e = {"level":"warning","service":"event-service","env":"sandbox","error":"Failed to fetch user details","stack":"Error: Failed to fetch user details\n    at https://sandbox.modules-7bj.pages.dev/assets/overlay-D3o9D5Es.js:3:17793","req_id":"","referer":"https://sandbox.modules-7bj.pages.dev/","origin":"https://sandbox.modules-7bj.pages.dev","user_agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1","meta":{"lang":"","market":""},"time":"2024-03-08T12:10:52Z","message":"error"}
-  puts e.to_json
+  puts e.merge(tag: "fromsinatra").to_json
   JSON.pretty_generate(e)
 end
 
 get '/error' do
   e = {"level":"error","service":"event-service","env":"sandbox","error":"Failed to fetch user details","stack":"Error: Failed to fetch user details\n    at https://sandbox.modules-7bj.pages.dev/assets/overlay-D3o9D5Es.js:3:17793","req_id":"","referer":"https://sandbox.modules-7bj.pages.dev/","origin":"https://sandbox.modules-7bj.pages.dev","user_agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1","meta":{"lang":"","market":""},"time":"2024-03-08T12:10:52Z","message":"error"}
-  puts e.to_json
+  puts e.merge(tag: "fromsinatra").to_json
   JSON.pretty_generate(e)
 end
 
 get '/appfile' do
-  STDOUT.puts "appfile"
+  log("appfile")
   file = File.read('/opt/render/project/src/run.sh')
   file.to_s
 end
 
 get '/secretfile' do
-  STDOUT.puts "secretfile"
+  log("secretfile")
   file = File.read('/etc/secrets/secret.json')
   # data_hash = JSON.parse(file)
   # data_hash.to_s
@@ -110,7 +114,7 @@ get '/secretfile' do
 end
 
 get '/rootsecretfile' do
-  STDOUT.puts "secretfile"
+  log("secretfile")
   file = File.read('secret.json')
   # data_hash = JSON.parse(file)
   # data_hash.to_s
@@ -118,7 +122,7 @@ get '/rootsecretfile' do
 end
 
 get '/dotrootsecretfile' do
-  STDOUT.puts "secretfile"
+  log("secretfile")
   file = File.read('./secret.json')
   # data_hash = JSON.parse(file)
   # data_hash.to_s
@@ -128,20 +132,20 @@ end
 get '/writefile' do
   File.write('/opt/render/project/test.it', 'Some glorious content', mode: 'a+')
   readit = File.read('/opt/render/project/test.it')
-  STDOUT.puts readit
+  log(readit)
   readit
 end
 
 get '/health' do
   actual_url = "#{request.env['rack.url_scheme']}://#{request.env['SERVER_NAME']}:#{request.env['SERVER_PORT']}#{request.env['PATH_INFO']}"
-  puts "SECOND HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - host header: #{request.host} - actual url: #{actual_url}"
+  log("SECOND HOT FIX reqeuest from - #{ENV['RENDER_INSTANCE_ID']} - host header: #{request.host} - actual url: #{actual_url}")
   status 200
   "orl korrect"
 end
 
 get '/healthfail' do
-  puts "from /healthfail - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.min} minute"
-  puts Time.now.min%4 != 1
+  log("from /healthfail - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.min} minute")
+  log((Time.now.min%4 != 1).to_s)
   if Time.now.min%4 != 1
     status 429
     "none korrect"
@@ -156,9 +160,9 @@ get '/threadhealth' do
   stats = JSON.parse(puma_stats)
   workers_count = stats['workers'] || 1
   total_threads = stats['worker_status'].sum { |worker| worker['last_status']['max_threads'] }
-  puts puma_stats
-  puts "#{workers_count} workers"
-  puts "#{total_threads} threads"
+  log(puma_stats)
+  log("#{workers_count} workers")
+  log("#{total_threads} threads")
   if workers_count < 3
     status 400
     "none korrect"
@@ -169,16 +173,16 @@ get '/threadhealth' do
 end
 
 get '/healthtimeout' do
-  puts "timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.min} minute" 
-  puts Time.now.min%5 != 1
+  log("timing out /healthtimeout - #{ENV['RENDER_INSTANCE_ID']} at #{Time.now.min} minute")
+  log((Time.now.min%5 != 1).to_s)
   if Time.now.min%5 != 1
-    puts 'wait for it'
+    log('wait for it')
     sleep 10
-    puts 'awake!'
+    log('awake!')
     status 400
     "delayed not korrect"
   else
-    puts 'instant!'
+    log('instant!')
     status 200
     "korrect four now"
   end
