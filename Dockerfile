@@ -19,7 +19,7 @@ WORKDIR /code
 COPY . ./
 RUN bundle install
 RUN ls ./
-COPY syslog.conf /etc/
+#COPY syslog.conf /etc/
 
 #CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0"]
 RUN chmod +x /code/run.sh
