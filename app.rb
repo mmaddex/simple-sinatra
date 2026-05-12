@@ -58,6 +58,10 @@ get '/headers' do
   headers.map { |k, v| "#{k}: #{v}" }.join("\n")
 end
 
+get 'loaderio-0f72fb4b43a9bafb54c16ee500e0bc22' do
+  "loaderio-0f72fb4b43a9bafb54c16ee500e0bc22"
+end
+
 get '/withresponseheaders' do
   response.headers['x-test'] = 'matts header'
   response.headers['accept-ranges'] = 'bytes'
