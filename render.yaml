@@ -12,7 +12,7 @@ envVarGroups:
 services:
 - type: web
   autoDeploy: false
-  branch: latesttag
+  branch: main
   plan: standard
   initialDeployHook: python3 pr_custom_domains.py ${RENDER_SERVICE_SLUG}.mattmaddex.com
   name: simple-sinatra
