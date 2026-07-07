@@ -38,7 +38,7 @@ get '/' do
   cache_control :public, :must_revalidate, max_age: ENV['MAX_AGE']
   headers['Cache-Control'] += ", stale-while-revalidate=#{ENV['STALE']}"
   # headers['Cache-Control'] += ", stale-while-revalidate=#{ENV['STALE']}"
-  "Native Service: Tudo bem???\n\n#{Time.now.to_i}\n\n#{request.url}\n\n#{ENV['RENDER_INSTANCE_ID']}\n#{request.ip}"
+  "Native Service: Tudo bem!!???!!!\n\n#{Time.now.to_i}\n\n#{request.url}\n\n#{ENV['RENDER_INSTANCE_ID']}\n#{request.ip}"
 end
 
 get '/testvar' do
