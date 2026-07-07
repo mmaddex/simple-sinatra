@@ -1,5 +1,5 @@
 previews:
-  generation: manual
+  generation: automatic
   expireAfterDays: 1
 envVarGroups:
 - name: my-env-group
@@ -10,20 +10,6 @@ envVarGroups:
     - key: SHARED_SECRET
       generateValue: true
 services:
-- type: pserv
-  autoDeploy: true
-  branch: main
-  plan: standard
-  name: simple-sinatra-priv
-  env: ruby
-  buildCommand: ./build.sh
-  startCommand: bundle exec rackup
-  preDeployCommand: echo "from pre $RENDER_INSTANCE_ID"
-  envVars:
-  - key: stupidtest
-    value: prodvalaAabbb
-    sync: true
-    previewValue: doesitworkaaA
 - type: web
   autoDeploy: false
   branch: latesttag
@@ -35,18 +21,4 @@ services:
   buildCommand: ./build.sh
   startCommand: bundle exec rackup
   preDeployCommand: echo "from pre $RENDER_INSTANCE_ID"
-  previews:
-    generation: off
-  envVars:
-  - key: stupidtest
-    value: otherprod
-    sync: true
-    previewValue: doesitwork
-  - key: FROMANOTHER 
-    fromService:
-      name: pgbouncer
-      type: pserv
-      property: host
-    previewValue: test-api-key
-  - fromGroup: my-env-group
-  - fromGroup: cloudflare
+
