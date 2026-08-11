@@ -41,6 +41,10 @@ get '/' do
   "Native Service: Tudo bem?!??\n\n#{Time.now.to_i}\n\n#{request.url}\n\n#{ENV['RENDER_INSTANCE_ID']}\n#{request.ip}"
 end
 
+get '/itworks' do
+  "🚢"
+end
+
 get '/testvar' do
   "#{ENV['RENDER_INSTANCE_ID']}: #{ENV['testvar']}"
 end
